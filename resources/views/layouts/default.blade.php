@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 12:11:01 GMT -->
+<!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 14:05:30 GMT -->
 <head>
     <!-- Title -->
     <title>Classic Header - One Page Scrolling | Unify - Responsive Website Template</title>
@@ -13,9 +13,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="https://htmlstream.com/preview/unify-v2.2/favicon.ico">
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="fonts.googleapis.com/cssd366.css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendor/bootstrap/offcanvas.css">
@@ -46,7 +46,7 @@
 <main>
     @include('partials._header')
 
-
+        @yield('contenu')
 
     @include('partials._footer')
     <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{
@@ -142,5 +142,5 @@
 </body>
 
 
-<!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 12:11:35 GMT -->
+<!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 14:06:04 GMT -->
 </html>
