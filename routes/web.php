@@ -11,6 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'as' => 'root_path',
+    'uses' => 'PagesController@home'
+]);
+
+Route::get('/hotels', [
+    'as' => 'hotels_path',
+    'uses' => 'PagesController@hotels'
+]);
+
+Route::get('/maquis', [
+    'as' => 'maquis_path',
+    'uses' => 'PagesController@maquis'
+]);
+
+Route::get('/hotels', [
+    'as' => 'restaus_path',
+    'uses' => 'PagesController@restaus'
+]);
+
+Route::get('/hotels', [
+    'as' => 'hotels_path',
+    'uses' => 'PagesController@hotels'
+]);
