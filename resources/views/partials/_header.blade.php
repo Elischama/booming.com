@@ -1,0 +1,61 @@
+<!-- Header -->
+<header id="js-header" class="u-header u-header--sticky-top u-header--change-appearance" data-header-fix-moment="300">
+    <div class="u-header__section u-header__section--dark g-bg-black-opacity-0_7 g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Responsive Toggle Button -->
+                <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+              <span class="hamburger hamburger--slider">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+              </span>
+              </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+                <!-- Logo -->
+                <a class="navbar-brand" href="https://htmlstream.com/preview/unify-v2.2/index.html">
+                    <img src="../../../assets/img/logo/logo-2.png" alt="Image Description">
+                </a>
+                <!-- End Logo -->
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--sm" id="navBar">
+                    <ul id="js-scroll-nav" class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
+                        <li class="nav-item g-mx-20--lg active">
+                            <a href="#home-section" class="nav-link px-0">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item g-mx-20--lg">
+                            <a href="#about-section" class="nav-link px-0">About
+
+                            </a>
+                        </li>
+                        <li class="nav-item g-mx-20--lg">
+                            <a href="#offers-section" class="nav-link px-0">Offers
+
+                            </a>
+                        </li>
+                        <li class="nav-item g-mx-20--lg">
+                            <a href="#news-section" class="nav-link px-0">News
+
+                            </a>
+                        </li>
+                        <li class="nav-item g-mx-20--lg">
+                            <a href="#projects-section" class="nav-link px-0">Projects
+
+                            </a>
+                        </li>
+                        <li class="nav-item g-ml-20--lg g-mr-0--lg">
+                            <a href="#contacts-section" class="nav-link px-0">Contacts
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
