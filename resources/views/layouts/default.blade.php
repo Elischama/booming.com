@@ -44,11 +44,11 @@
 
 <body id="home-section">
 <main>
-    @include('partials._header')
+    @include('layouts.partials._header')
 
         @yield('contenu')
 
-    @include('partials._footer')
+    @include('layouts.partials._footer')
     <a class="js-go-to u-go-to-v1" href="#" data-type="fixed" data-position='{
      "bottom": 15,
      "right": 15

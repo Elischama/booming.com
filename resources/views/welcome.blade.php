@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('contenu')
     <section class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll dzsprx-readyall loaded" data-options="{direction: &quot;reverse&quot;, settings_mode_oneelement_max_offset: &quot;150&quot;}">
-        <div class="divimage dzsparallaxer--target w-100 u-bg-overlay g-bg-img-hero g-bg-bluegray-opacity-0_3--after " style="height: 75%; background-image: url(&quot;../../assets/img-temp/1920x1080/img4.jpg&quot;); transform: translate3d(0px, -93.8988px, 0px);"></div>
+        <div class="divimage dzsparallaxer--target w-100 u-bg-overlay g-bg-img-hero g-bg-bluegray-opacity-0_3--after " style="height: 100%; background-image: url(&quot;../../assets/img-temp/1920x1080/img25.jpg&quot;); transform: translate3d(0px, -93.8988px, 0px);"></div>
 
         <!-- Promo Block Content -->
         <div class="container u-bg-overlay__inner text-center g-py-100">
