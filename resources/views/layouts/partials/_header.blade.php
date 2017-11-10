@@ -13,7 +13,7 @@
                 </button>
                 <!-- End Responsive Toggle Button -->
                 <!-- Logo -->
-                <a class="navbar-brand" href="{{ route('root_path') }}">
+                <a class="navbar-brand" href="">
                     <img src="../../../assets/img/logo/logo-2.png" alt="Image Description">
                 </a>
                 <!-- End Logo -->
@@ -23,17 +23,17 @@
 
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                         <li class="nav-item g-mx-25--lg">
-                            <a href="{{ route('hotels_path') }}" class="nav-link px-0">Hôtels
+                            <a href="" class="nav-link px-0">Hôtels
 
                             </a>
                         </li>
                         <li class="nav-item g-mx-25--lg">
-                            <a href="{{ route('maquis_path') }}" class="nav-link px-0">Maquis
+                            <a href="" class="nav-link px-0">Maquis
 
                             </a>
                         </li>
                         <li class="nav-item g-mx-25--lg g-mr-0--lg">
-                            <a href="{{ route('restaus_path') }}" class="nav-link px-0">Restaurants
+                            <a href="" class="nav-link px-0">Restaurants
 
                             </a>
                         </li>
@@ -41,12 +41,12 @@
 
                     <ul id="" class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
                         <li class="nav-item g-mx-20--lg">
-                            <a href="{{ route('signUp_user_path') }}" class="nav-link px-0">S'inscrire
+                            <a href="" class="nav-link px-0">S'inscrire
 
                             </a>
                         </li>
                         <li class="nav-item g-mx-20--lg">
-                            <a href="{{ route('login_user_path') }}" class="nav-link px-0">Se connecter
+                            <a href="" class="nav-link px-0">Se connecter
 
                             </a>
                         </li>

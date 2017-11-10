@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname', 'lastname', 'mobile', 'email', 'password', 'token', 'verified', 'type_user_id'
     ];
 
     /**
@@ -26,4 +26,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     *
+     * Boot the model.
+     *
+     */
+    public static function boot(){
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->token = str_random(40);
+        });
+    }
+
+    public function hasVerified()
+    {
+        $this->verified = 1;
+        $this->token = null;
+
+        $this->save();
+    }
+
+
+    public function type_user(){
+
+        return $this->belongsTo('App\TypeUser');
+    }
 }

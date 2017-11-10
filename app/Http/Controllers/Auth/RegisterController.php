@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\ConfirmationEmail;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -48,8 +53,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'mobile' => 'required|string|max:14|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,9 +70,58 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
+            'mobile' => $data['mobile'],
+            'type_user_id' => 3,
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        Mail::to($user->email)->send(new ConfirmationEmail($user));
+
+        return redirect()->route('welcome', ['email' => addslashes($request->input('email')), 'token' => bin2hex(random_bytes(32))]);
+    }
+
+    public function confirmEmail($token){
+        $data = User::where('token', $token)->first();
+
+        if (empty($data)){
+
+            dd($data);
+            return redirect()->route('index')->with('info', 'Votre adresse e-mail est déjà confirmé');
+        }
+
+        User::whereToken($token)->first()->hasVerified();
+
+        $data->save();
+
+        return redirect('login')->with('success', 'Votre adresse e-mail a été confirmé. Connectez-vous');
+    }
+
+    public function welcome(){
+
+        $email = Input::get('email');
+        $token = Input::get('token');
+
+        if (empty($token)){
+            return redirect('/404');
+        }
+
+        $data = User::where('email', $email)->first();
+
+        if (empty($data)){
+            return redirect('/404');
+        }
+
+        return view('auth.welcome', compact('data'));
     }
 }
