@@ -26,12 +26,8 @@ Route::get('/maquis', [
     'uses' => 'PagesController@maquis'
 ]);
 
-Route::get('/hotels', [
+Route::get('/restaus', [
     'as' => 'restaus_path',
     'uses' => 'PagesController@restaus'
 ]);
 
-Route::get('/hotels', [
-    'as' => 'hotels_path',
-    'uses' => 'PagesController@hotels'
-]);
