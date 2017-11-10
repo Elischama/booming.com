@@ -13,7 +13,7 @@
                 </button>
                 <!-- End Responsive Toggle Button -->
                 <!-- Logo -->
-                <a class="navbar-brand" href="">
+                <a class="navbar-brand" href="{{ route('root_path') }}">
                     <img src="../../../assets/img/logo/logo-2.png" alt="Image Description">
                 </a>
                 <!-- End Logo -->
@@ -28,7 +28,7 @@
                             </a>
                         </li>
                         <li class="nav-item g-mx-25--lg">
-                            <a href="" class="nav-link px-0">Maquis
+                            <a href="{{ route('maquis_path') }}" class="nav-link px-0">Maquis
 
                             </a>
                         </li>

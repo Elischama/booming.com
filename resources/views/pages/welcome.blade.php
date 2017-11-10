@@ -38,7 +38,7 @@
         <div class="row text-center">
 
             <div class="col-md-3 g-mb-30">
-                <a class=" d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_3--after" href="">
+                <a class=" d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_3--after" href="{{ route('description_path') }}">
                     <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img4.jpg" alt="Image Description">
                     <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Maquis Shanghai </strong>
                 </a>

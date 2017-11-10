@@ -22,4 +22,8 @@ class PagesController extends Controller
     public function restaus(){
         return view('pages.restaus');
     }
+
+    public function description(){
+        return view ('pages.description');
+    }
 }

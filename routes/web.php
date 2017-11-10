@@ -36,6 +36,11 @@ Route::get('/hotels', [
     'uses' => 'PagesController@hotels'
 ]);
 
+Route::get('/description', [
+   'as' => 'description_path',
+   'uses' => 'PagesController@description'
+]);
+
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
@@ -43,6 +48,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/home', function (){
     return redirect('/');
 });
+
 Route::get('/register/welcome', 'Auth\RegisterController@welcome')->name('welcome');
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
 
