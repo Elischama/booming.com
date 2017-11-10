@@ -26,7 +26,7 @@ Route::get('/maquis', [
     'uses' => 'PagesController@maquis'
 ]);
 
-Route::get('/hotels', [
+Route::get('/restaus', [
     'as' => 'restaus_path',
     'uses' => 'PagesController@restaus'
 ]);
@@ -43,3 +43,4 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/register/welcome', 'Auth\RegisterController@welcome')->name('welcome');
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
+

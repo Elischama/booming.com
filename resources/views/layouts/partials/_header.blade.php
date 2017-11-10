@@ -1,6 +1,6 @@
 <!-- Header -->
 <header id="js-header" class="u-header u-header--sticky-top u-header--change-appearance" data-header-fix-moment="300">
-    <div class="u-header__section u-header__section--dark g-bg-black-opacity-0_7 g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
+    <div  class="u-header__section u-header__section--dark g-bg-black-opacity-0_7 g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Responsive Toggle Button -->
