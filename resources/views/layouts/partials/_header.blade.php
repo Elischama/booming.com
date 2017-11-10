@@ -40,17 +40,29 @@
                     </ul>
 
                     <ul id="" class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
-                        <li class="nav-item g-mx-20--lg">
-                            <a href="" class="nav-link px-0">S'inscrire
+                        @if(Auth::guest())
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="" class="nav-link px-0">S'inscrire
 
-                            </a>
-                        </li>
-                        <li class="nav-item g-mx-20--lg">
-                            <a href="" class="nav-link px-0">Se connecter
+                                </a>
+                            </li>
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="" class="nav-link px-0">Se connecter
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="" class="nav-link px-0"><i class="fa fa-user-circle"></i> {{ Auth::user()->lastname }}
+
+                                </a>
+                            </li>
+                        @endif
                     </ul>
+
+                    <div class="d-inline-block g-hidden-xs-down g-pos-rel g-valign-middle g-pl-30 g-pl-0--lg">
+                        <a class="btn u-btn-outline-primary g-font-size-13 text-uppercase g-py-10 g-px-15" href="/">Poster une annonce</a>
+                    </div>
 
                 </div>
                 <!-- End Navigation -->

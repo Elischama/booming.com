@@ -40,7 +40,12 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function (){
+    return redirect('/');
+});
 Route::get('/register/welcome', 'Auth\RegisterController@welcome')->name('welcome');
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
 
+Route::get('/user/account', function(){
+    return view('user.profile');
+});
