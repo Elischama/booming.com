@@ -71,3 +71,5 @@
     </div>
 </header>
 <!-- End Header -->
+
+@include('layouts.partials.flash')

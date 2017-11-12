@@ -127,12 +127,12 @@
                                                 {{--</a>--}}
                                             {{--</td>--}}
                                             {{--<td class="align-middle text-nowrap">--}}
-                              {{--<span class="d-block g-mb-5">--}}
-                                {{--<i class="icon-phone g-font-size-16 g-color-gray-dark-v5 g-pos-rel g-top-2 g-mr-5"></i> +49 3868 4792--}}
-                              {{--</span>--}}
-                                                {{--<span class="d-block">--}}
-                                {{--<i class="icon-envelope g-font-size-16 g-color-gray-dark-v5 g-pos-rel g-top-2 g-mr-5"></i> clients@dell.com--}}
-                              {{--</span>--}}
+                                              {{--<span class="d-block g-mb-5">--}}
+                                                {{--<i class="icon-phone g-font-size-16 g-color-gray-dark-v5 g-pos-rel g-top-2 g-mr-5"></i> +49 3868 4792--}}
+                                              {{--</span>--}}
+                                                                {{--<span class="d-block">--}}
+                                                {{--<i class="icon-envelope g-font-size-16 g-color-gray-dark-v5 g-pos-rel g-top-2 g-mr-5"></i> clients@dell.com--}}
+                                              {{--</span>--}}
                                             {{--</td>--}}
                                         {{--</tr>--}}
                                         </tbody>

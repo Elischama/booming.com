@@ -58,7 +58,17 @@ Route::get('/user/account', function(){
 
 Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
     Route::get('/', 'UserController@UserAccount')->name('user.account');
-    Route::get('/annonce', 'UserController@UserAnnonce')->name('user.account.annonce');
-    Route::post('/annonce/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
-    Route::get('/annonce/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
+
+    // crud annonce
+    Route::group(['prefix' => 'annonce'], function(){
+        Route::get('/annonce', 'UserController@UserAnnonce')->name('user.account.annonce');
+        Route::post('/annonce/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
+        Route::get('/annonce/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
+    });
+
+    Route::group(['prefix' => 'setting'], function(){
+        Route::get('/', 'UserController@UserSetting')->name('user.account.setting');
+        Route::post('/save', 'UserController@UserSettingSave')->name('user.account.setting.save');
+    });
+
 });

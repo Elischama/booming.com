@@ -50,7 +50,6 @@
 <body id="home-section">
 <main>
     @include('layouts.partials._header')
-    @include('layouts.partials.flash')
 
     @yield('contenu')
 

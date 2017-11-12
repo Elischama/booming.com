@@ -51,7 +51,7 @@
         <!-- End Overall -->
 
         <!-- Profile -->
-        <a href="/" class="list-group-item list-group-item-action justify-content-between">
+        <a href="{{ route('user.account.annonce') }}" class="list-group-item list-group-item-action justify-content-between">
             <span><i class="fa fa-plus-square-o g-pos-rel g-top-1 g-mr-8"></i> Ajouter une annonce</span>
         </a>
         <!-- End Profile -->
@@ -63,7 +63,7 @@
         <!-- End Profile -->
 
         <!-- Profile -->
-        <a href="/" class="list-group-item list-group-item-action justify-content-between">
+        <a href="{{ route('user.account.setting') }}" class="list-group-item list-group-item-action justify-content-between">
             <span><i class="fa fa-spinner g-pos-rel g-top-1 g-mr-8"></i> Parametres</span>
         </a>
         <!-- End Profile -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Annonce;
 use App\Category;
 use App\Image;
+use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -94,5 +95,38 @@ class UserController extends Controller
         $datas = Annonce::where('user_id', $auth->id())->OrderBy('id', 'desc')->get();
 
         return view('user.list', compact('datas'));
+    }
+
+    public function UserSetting(Guard $auth){
+
+        $user = User::find($auth->id());
+
+        return view('user.setting', compact('user'));
+    }
+
+    public function UserSettingSave(Request $request, Guard $auth){
+
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'mobile' => 'required'
+        ]);
+
+        if ($validator->fails()){
+            return back()->withInput()->withErrors($validator)->with('danger', 'Veuillez renseigner les champs');
+        }else{
+
+            $user = User::find($auth->id());
+
+            $user->firstname = $request->input('firstname');
+            $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
+            $user->mobile = $request->input('mobile');
+
+            $user->save();
+        }
+
+        return back()->with('success', 'Vous avez modifié votre profil avec succès');
     }
 }

@@ -16,16 +16,9 @@
                         <div class="col-sm-12 g-mb-40 g-mb-0--lg">
                             <!-- Latest Projects Panel -->
                             <div class="card border-0">
-                                <!-- Panel Header -->
-                                <div class="card-header d-flex align-items-center justify-content-between g-bg-gray-light-v5 border-0 g-mb-15">
 
-                                    <h3 class="h6 mb-0">
-                                        <i class="fa fa-edit"></i> Ajouter un Établissement
-                                    </h3>
-
-                                </div>
                                 <div class="tab-pane fade active show" id="nav-1-1-default-hor-left-underline--3" role="tabpanel" aria-expanded="true">
-                                    <h2 class="h4 g-font-weight-300">Vous allez enregistrer un <strong id="anonce_name">maqui</strong></h2>
+                                    <h2 class="h4 g-font-weight-300"><strong>Vous allez enregistrer un Etablissement</strong></h2>
                                     <p class="g-mb-25">Veuillez renseigner tous les champs pour enregistrer votre etablissement</p>
 
                                     {!! Form::open(['route' => 'user.account.annonce.save', 'enctype' => 'multipart/form-data']) !!}
