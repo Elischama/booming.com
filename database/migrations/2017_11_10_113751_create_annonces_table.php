@@ -15,13 +15,15 @@ class CreateAnnoncesTable extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->longText('description')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('adresse');
-            $table->string('commune');
-            $table->string('telephone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('name');
+            $table->string('situation');
+            $table->longText('description');
+            $table->longText('strong_point');
+            $table->string('city');
+            $table->string('mobile');
+            $table->string('fixe');
+            $table->string('email');
+            $table->integer('categorie_id')->unsigned()->index();
             $table->timestamps();
         });
     }

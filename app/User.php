@@ -53,4 +53,9 @@ class User extends Authenticatable
 
         return $this->belongsTo('App\TypeUser');
     }
+
+    public function annonces(){
+
+        return $this->hasMany('App\Annonce');
+    }
 }

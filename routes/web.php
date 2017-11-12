@@ -55,3 +55,10 @@ Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
 Route::get('/user/account', function(){
     return view('user.profile');
 });
+
+Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
+    Route::get('/', 'UserController@UserAccount')->name('user.account');
+    Route::get('/annonce', 'UserController@UserAnnonce')->name('user.account.annonce');
+    Route::post('/annonce/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
+    Route::get('/annonce/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
+});
