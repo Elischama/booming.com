@@ -71,4 +71,6 @@ Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
         Route::post('/save', 'UserController@UserSettingSave')->name('user.account.setting.save');
     });
 
+    // Route pour lister tous les hôtels
+    Route::resource('/hotels', 'AnnoncesController@listeHotels');
 });

@@ -2,6 +2,14 @@
 
 @section('contenu')
     <div class="row">
-        <img src="assets/img-temp/400x270/img1.jpg" alt="..." class="img-thumbnail">
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-8">
+        @foreach($hotels as $hotel)
+            <li>{{ $hotel->name }}</li>
+        @endforeach
+        </div>
     </div>
 @endsection
