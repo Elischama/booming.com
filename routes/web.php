@@ -62,8 +62,18 @@ Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
     // crud annonce
     Route::group(['prefix' => 'annonce'], function(){
         Route::get('/annonce', 'UserController@UserAnnonce')->name('user.account.annonce');
+        Route::get('/annonce/edit', 'UserController@UserAnnonce')->name('user.account.annonce.edit');
         Route::post('/annonce/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
+        Route::post('/annonce/{id}/update', 'UserController@UserAnnonceUpdate')->name('user.account.annonce.update');
         Route::get('/annonce/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
+        Route::get('/annonce/archive', 'UserController@UserAnnonceArchive')->name('user.account.annonce.archive');
+
+        Route::get('/annonce/{id}/disable', 'UserController@UserAnnonceDisable')->name('user.account.annonce.disable');
+        Route::get('/annonce/{id}/enable', 'UserController@UserAnnonceEnable')->name('user.account.annonce.enable');
+        Route::get('/annonce/{id}/delete', 'UserController@UserAnnonceDelete')->name('user.account.annonce.delete');
+
+        Route::get('/annonce/delete/strong-point', 'UserController@UserAnnonceStrongPointDelete')->name('user.account.annonce.strong.point.delete');
+        Route::get('/annonce/delete/delete-picture', 'UserController@UserAnnonceImageDelete')->name('user.account.annonce.image.delete');
     });
 
     Route::group(['prefix' => 'setting'], function(){

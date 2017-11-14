@@ -14,23 +14,23 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-
+        return ("Erruer 404");
     }
 
     public function listeHotels(){
 
-        $hotels = Annonce::where('categorie_id', 1)->get();
-        return view ('pages.hotels', ["hotels" => $hotels]);
+        $annonce = Annonce::where('categorie_id', 1)->get();
+        return view ('pages.hotels', ["annonces" => $annonce]);
     }
 
     public function listeMaquis(){
-        $maquis = Annonce::where('categorie_id', 2)->get();
-        return view('pages.maquis', ["maquis" => $maquis]);
+        $annonce = Annonce::where('categorie_id', 2)->get();
+        return view('pages.maquis', ["annonces" => $annonce]);
     }
 
     public function listeRestaus(){
-        $restaus = Annonce::where('categorie_id', 3)->get();
-        return view('pages.restaus', ["restaus" => $restaus]);
+        $annonce = Annonce::where('categorie_id', 3)->get();
+        return view('pages.restaus', ["annonces" => $annonce]);
     }
 
 
@@ -64,6 +64,8 @@ class AnnoncesController extends Controller
     public function show(Annonce $annonce)
     {
         //
+        $annonce = Annonce::where('id', $annonce->id )->first();
+        return view('pages.description', ["annonce" => $annonce]);
 
     }
 

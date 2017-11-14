@@ -59,7 +59,9 @@
     </section>
 
     <section class="container">
-        <h1>Maquis le Shanghai</h1>
+        <h1>
+            {{ $annonce->name }}
+        </h1>
         <div class="col-md-8">
         <div class="u-heading-v1-1 g-bg-main g-brd-gray-light-v2 g-mb-20">
             <h2 class="h3 u-heading-v1__title">Description</h2>

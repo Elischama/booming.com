@@ -92,7 +92,7 @@
 
                         </div>
 
-                        {!! Form::submit('Enregistre', ['class' => 'btn btn-md btn-block u-btn-primary rounded text-uppercase g-py-13']) !!}
+                        {!! Form::submit('Enregistre', ['class' => 'btn btn-md pull-right u-btn-primary rounded text-uppercase g-py-13']) !!}
                         {!! Form::close() !!}
 
                     </div>
