@@ -116,9 +116,22 @@ class UserController extends Controller
 
     public function UserAnnonceList(Guard $auth){
 
-        $datas = Annonce::where('user_id', $auth->id())->OrderBy('id', 'desc')->get();
+        $datas = Annonce::where('user_id', $auth->id())
+            ->where('statut', 1)
+            ->OrderBy('id', 'desc')
+            ->get();
 
         return view('user.list', compact('datas'));
+    }
+
+    public function UserAnnonceArchive(Guard $auth){
+
+        $datas = Annonce::where('user_id', $auth->id())
+            ->where('statut', 0)
+            ->OrderBy('id', 'desc')
+            ->get();
+
+        return view('user.archive', compact('datas'));
     }
 
     public function UserSetting(Guard $auth){
@@ -239,7 +252,7 @@ class UserController extends Controller
         return redirect()->route('user.account.annonce.list')->with('success', 'Vous avez désactivé une annonce avec succès');
     }
 
-    public function UserAnnonceEnable($id, Guard $auth){
+    public function UserAnnonceEnable(Request $request, $id, Guard $auth){
 
         $data = Annonce::find($id);
 
@@ -250,11 +263,15 @@ class UserController extends Controller
             $data->statut = 1;
             $data->save();
 
+            if ($request->ajax()){
+                return response()->json(['success' => 'Vous avez rétiré cette annonce de vos archives avec succès']);
+            }
+
             return redirect()->route('user.account.annonce.list')->with('success', 'Vous avez activé une annonce avec succès');
         }
     }
 
-    public function UserAnnonceDelete($id, Guard $auth){
+    public function UserAnnonceDelete(Request $request, $id, Guard $auth){
 
         $data = Annonce::find($id);
 
@@ -264,7 +281,49 @@ class UserController extends Controller
 
             $data->delete();
 
+            if ($request->ajax()){
+                return response()->json(['success' => 'Vous avez supprimé votre annonce avec succès']);
+            }
+
             return redirect()->route('user.account.annonce.list')->with('success', 'Vous avez supprimé une annonce avec succès');
+        }
+    }
+
+    public function UserAnnonceStrongPointDelete(Guard $auth){
+
+        $id = Input::get('annonce');
+        $data = Annonce::find($id);
+        $tag = Input::get('tag').',';
+//        $tag = Input::get('tag');
+
+        if ($data->user_id != $auth->id()){
+
+            return response()->json(['danger' => 'Une erreure est survenue, veuillez réesayer']);
+        }else{
+
+            $newStrongPoint = str_replace($tag, '', $data->strong_point);
+
+            $data->strong_point = $newStrongPoint;
+            $data->save();
+
+            return back();
+        }
+    }
+
+    public function UserAnnonceImageDelete(Guard $auth){
+
+        $id = Input::get('picture_id');
+        $annonce = Input::get('annonce');
+
+        $data = Image::find($id);
+
+        if ($data->annonce_id != $annonce){
+
+            return response()->json(['danger' => 'Une erreure est survenue, veuillez réesayer']);
+        }else{
+
+            $data->delete();
+            return back();
         }
     }
 }

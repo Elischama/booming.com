@@ -17,7 +17,7 @@
                     <div class="card border-0">
                         <div class="card-header d-flex align-items-center justify-content-between g-bg-gray-light-v5 border-0 g-mb-15">
                             <h3 class="h6 mb-0">
-                                <i class="fa fa-list"></i> Mes annonces
+                                <i class="fa fa-list"></i> Archives
                             </h3>
                         </div>
 
@@ -43,25 +43,17 @@
                                                 <h4 class="h6 g-mb-2">{{ stripslashes($data->name) }}</h4>
                                                 <div class="js-rating g-font-size-12 g-color-primary" data-rating="3.5"></div>
                                             </td>
-                                            @if($data->verified == 1)
                                             <td class="align-middle">
-                                                <a class="btn btn-block u-btn-primary g-rounded-50 g-py-5" href="#">
-                                                    <i class="fa fa-globe g-mr-5"></i> En ligne
+                                                <a class="btn btn-block u-btn-red g-rounded-50 g-py-5" href="#">
+                                                    <i class="fa fa-archive g-mr-5"></i> Archivé
                                                 </a>
                                             </td>
-                                            @else
-                                            <td class="align-middle">
-                                                <a class="btn btn-block u-btn-cyan g-rounded-50 g-py-5" href="#">
-                                                    <i class="fa fa-spinner fa-spin g-mr-5"></i> En traitement
-                                                </a>
-                                            </td>
-                                            @endif
                                             <td class="align-middle text-nowrap">
-                                                <a href="{{ route('user.account.annonce.edit', ['id' => $data->id]) }}" class="btn u-btn-orange g-py-5 toolt" title="Modifier cette annonce"><i class="fa fa-edit"></i></a>
-                                                <a id="DisableAnnonce" href="{{ route('user.account.annonce.disable', $data->id) }}" class="btn btn-dark g-py-5 toolt" title="Archiver cette annonce"><i class="fa fa-archive"></i></a>
-                                                {{--<a id="EnableAnnonce" href="{{ route('user.account.annonce.enable', $data->id) }}" class="btn u-btn-indigo g-py-5"><i class="fa fa-check"></i></a>--}}
+                                                {{--<a href="{{ route('user.account.annonce.edit', ['id' => $data->id]) }}" class="btn u-btn-orange g-py-5 toolt" title="Modifier cette annonce"><i class="fa fa-edit"></i></a>--}}
+                                                {{--<a id="DisableAnnonce" href="{{ route('user.account.annonce.disable', $data->id) }}" class="btn btn-dark g-py-5 toolt" title="Archiver cette annonce"><i class="fa fa-archive"></i></a>--}}
+                                                <a id="EnableAnnonce" href="{{ route('user.account.annonce.enable', $data->id) }}" class="btn u-btn-indigo g-py-5 toolt" title="Réactiver cette annonce"><i class="fa fa-check"></i></a>
                                                 <a id="DeleteAnnonce" href="{{ route('user.account.annonce.delete', $data->id) }}" class="btn u-btn-red g-py-5 toolt" title="Supprimer l'annonce"><i class="fa fa-trash"></i></a>
-                                                <a href="" class="btn btn-success g-py-5 toolt" title="Sponsoriser mon annonce"><i class="fa fa-toggle-up"></i></a>
+                                                {{--<a href="" class="btn btn-success g-py-5 toolt" title="Sponsoriser mon annonce"><i class="fa fa-toggle-up"></i></a>--}}
                                             </td>
                                         </tr>
                                         @endforeach

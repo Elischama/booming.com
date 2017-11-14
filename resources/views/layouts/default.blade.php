@@ -41,6 +41,8 @@
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/assets/css/custom.css">
     <link rel="stylesheet" href="/assets/css/selectize/selectize.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/tooltip/tooltipster.bundle.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/tooltip/plugin/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css" />
 
     <!-- upload file plugin -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -97,6 +99,7 @@
 <script src="/assets/js/selectize/selectize.min.js"></script>
 <script src="/assets/js/selectize/plugin.js"></script>
 
+<script type="text/javascript" src="/assets/js/tooltip/tooltipster.bundle.js"></script>
 <!-- home js -->
 <script src="/assets/js/home.js"></script>
 
@@ -128,6 +131,12 @@
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
+
+        $('.toolt').tooltipster({
+            theme: 'tooltipster-borderless'
+        });
+
+
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
 
