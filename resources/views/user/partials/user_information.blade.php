@@ -57,6 +57,12 @@
         <!-- End Profile -->
 
         <!-- Profile -->
+        <a href="{{ route('user.account.annonce.list') }}" class="list-group-item list-group-item-action justify-content-between">
+            <span><i class="fa fa-plus-square-o g-pos-rel g-top-1 g-mr-8"></i> Mes annonces</span>
+        </a>
+        <!-- End Profile -->
+
+        <!-- Profile -->
         <a href="/" class="list-group-item list-group-item-action justify-content-between">
             <span><i class="fa fa-comments g-pos-rel g-top-1 g-mr-8"></i> Commentaires</span>
         </a>

@@ -97,6 +97,9 @@
 <script src="/assets/js/selectize/selectize.min.js"></script>
 <script src="/assets/js/selectize/plugin.js"></script>
 
+<!-- home js -->
+<script src="/assets/js/home.js"></script>
+
 <!-- js upload plugin -->
 <!-- link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>--}}
