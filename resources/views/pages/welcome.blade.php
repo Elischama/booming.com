@@ -133,5 +133,8 @@
     </section>
 
 
+        @foreach($themes as $theme)
+            {{ $theme->name }}
+        @endforeach
 </div>
 @endsection
