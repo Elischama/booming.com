@@ -18,7 +18,7 @@ Route::get('/', [
 
 Route::get('/hotels', [
     'as' => 'hotels_path',
-    'uses' => 'PagesController@hotels'
+    'uses' => 'AnnoncesController@listeHotels'
 ]);
 
 Route::get('/maquis', [
@@ -33,7 +33,7 @@ Route::get('/restaus', [
 
 Route::get('/hotels', [
     'as' => 'hotels_path',
-    'uses' => 'PagesController@hotels'
+    'uses' => 'AnnoncesController@listeHotels'
 ]);
 
 Route::get('/description', [
@@ -71,6 +71,9 @@ Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
         Route::post('/save', 'UserController@UserSettingSave')->name('user.account.setting.save');
     });
 
-    // Route pour lister tous les hôtels
-    Route::resource('/hotels', 'AnnoncesController@listeHotels');
+
 });
+
+Route::resource('images', 'ImagesController');
+
+Route::resource('annonces', 'AnnoncesController');

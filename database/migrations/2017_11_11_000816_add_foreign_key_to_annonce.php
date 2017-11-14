@@ -13,7 +13,7 @@ class AddForeignKeyToAnnonce extends Migration
      */
     public function up()
     {
-        Schema::table('annonces', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
@@ -25,7 +25,7 @@ class AddForeignKeyToAnnonce extends Migration
      */
     public function down()
     {
-        Schema::table('annonces', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             //
         });
     }

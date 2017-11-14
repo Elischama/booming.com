@@ -13,7 +13,7 @@ class AddColumnToAnnonceTable extends Migration
      */
     public function up()
     {
-        Schema::table('annonces', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             $table->boolean('promoted')->default(0);
             $table->boolean('verified')->default(0);
             $table->boolean('statut')->default(1);
@@ -29,7 +29,7 @@ class AddColumnToAnnonceTable extends Migration
      */
     public function down()
     {
-        Schema::table('annonces', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
             //
         });
     }

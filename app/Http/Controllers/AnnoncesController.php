@@ -17,23 +17,22 @@ class AnnoncesController extends Controller
 
     }
 
-    //Trouver tous les hôtels
     public function listeHotels(){
-        $hotels = Annonce::where('id-category', 1)->get();
-        return view('pages.hotels');
+
+        $hotels = Annonce::where('categorie_id', 1)->get();
+        return view ('pages.hotels', ["hotels" => $hotels]);
     }
 
-    //Trouver tous les maquis
     public function listeMaquis(){
-        $maquis = Annonce::where('id_category', 2)->get();
-        return view('pages.maquis');
+        $maquis = Annonce::where('categorie_id', 2)->get();
+        return view('pages.maquis', ["maquis" => $maquis]);
     }
 
-    // liste de tous les restaurants
     public function listeRestaus(){
-        $restaus = Annonce::where('id_category', 3)->get();
-        return view('pages.restaus');
+        $restaus = Annonce::where('categorie_id', 3)->get();
+        return view('pages.restaus', ["restaus" => $restaus]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -65,7 +64,7 @@ class AnnoncesController extends Controller
     public function show(Annonce $annonce)
     {
         //
-        $annonce;
+
     }
 
     /**

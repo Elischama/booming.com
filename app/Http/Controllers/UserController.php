@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function UserAnnonce(){
 
-        return view('user.annonces');
+        return view('user.images');
     }
 
     public function UserAnnonceSave(Request $request, Guard $auth){
@@ -61,7 +61,7 @@ class UserController extends Controller
 
             if (count($request->file('image')) > 0){
 
-                $destination_path = public_path('assets/img/annonces');
+                $destination_path = public_path('assets/img/images');
 
                 $extention = array(
                     'jpg', 'JPG', 'png', 'PNG', 'JPEG', 'jpeg', 'GIF', 'gif'

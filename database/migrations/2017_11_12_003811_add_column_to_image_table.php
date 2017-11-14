@@ -16,7 +16,7 @@ class AddColumnToImageTable extends Migration
         Schema::table('images', function (Blueprint $table) {
             $table->string('name');
             $table->integer('annonce_id')->unsigned()->index();
-            $table->foreign('annonce_id')->references('id')->on('annonces')->onDelete('cascade');
+            $table->foreign('annonce_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 
