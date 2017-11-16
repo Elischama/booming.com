@@ -50,7 +50,7 @@ Route::get('/home', function (){
 });
 
 Route::get('/register/welcome', 'Auth\RegisterController@welcome')->name('welcome');
-Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
+Route::get('/register/confirm/{token}', 'HomeController@confirmEmail');
 
 Route::get('/user/account', function(){
     return view('user.profile');
@@ -82,8 +82,51 @@ Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
     });
 
 
+
 });
 
 Route::resource('images', 'ImagesController');
 
 Route::resource('annonces', 'AnnoncesController');
+
+// admin route
+
+Route::group(['prefix' => 'adminzone', 'middleware' => 'IsAdmin'], function(){
+    Route::get('/', 'Admin\AdminController@index')->name('admin');
+
+    // utilisateur route
+    Route::group(['prefix' => 'users'], function(){
+        Route::get('/', 'Admin\AdminController@AllUsers')->name('all.users');
+        Route::get('/advertiser', 'Admin\AdminController@AllUsersAdvertiser')->name('all.users.advertiser');
+        Route::get('/standard', 'Admin\AdminController@AllUsersStandard')->name('all.users.standard');
+        Route::get('/admin', 'Admin\AdminController@AllUsersAdmin')->name('all.users.admin');
+
+        Route::get('/{id}/delete', 'Admin\AdminController@DeleteUser')->name('delete.user');
+        Route::get('/{id}/delete/admin', 'Admin\AdminController@DeleteAdmin')->name('delete.admin');
+        Route::get('/{id}/resend', 'Admin\AdminController@SendConfirmationEmail')->name('user.resend');
+        Route::post('/new-admin', 'Admin\AdminController@AddNewAdmin')->name('new.admin');
+        Route::get('/new-admin/{id}/add', 'Admin\AdminController@AddNewAdminAdd')->name('new.admin.add');
+    });
+
+    // annonces
+    Route::group(['prefix' => 'advert'], function(){
+        Route::get('/hotels', 'Admin\AdminController@AllHotels')->name('all.hotels');
+        Route::get('/restaurants', 'Admin\AdminController@AllRestaurants')->name('all.restaurants');
+        Route::get('/maquis', 'Admin\AdminController@AllMaquis')->name('all.maquis');
+        Route::get('/{id}/show', 'Admin\AdminController@AnnonceShow')->name('annonce.show');
+
+        //annonce en attente
+        Route::get('/hotels/waiting', 'Admin\AdminController@AllHotelsWaiting')->name('all.hotels.waiting');
+        Route::get('/restaurants/waiting', 'Admin\AdminController@AllRestaurantsWaiting')->name('all.restaurants.waiting');
+        Route::get('/maquis/waiting', 'Admin\AdminController@AllMaquisWaiting')->name('all.maquis.waiting');
+
+        Route::get('/{id}/validate', 'Admin\AdminController@AnnonceValidate')->name('annonce.validate');
+        Route::get('/{id}/un-validate', 'Admin\AdminController@AnnonceUnValidate')->name('annonce.un.validate');
+        Route::get('/{id}/delete', 'Admin\AdminController@AnnonceDelete')->name('annonce.delete');
+//        Route::get('/{id}/delete/admin', 'Admin\AdminController@DeleteAdmin')->name('delete.admin');
+//        Route::get('/{id}/resend', 'Admin\AdminController@SendConfirmationEmail')->name('user.resend');
+//        Route::post('/new-admin', 'Admin\AdminController@AddNewAdmin')->name('new.admin');
+//        Route::get('/new-admin/{id}/add', 'Admin\AdminController@AddNewAdminAdd')->name('new.admin.add');
+    });
+
+});

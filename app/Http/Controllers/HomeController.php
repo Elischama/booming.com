@@ -27,4 +27,21 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    public function confirmEmail($token){
+        $data = User::where('token', $token)->first();
+
+        if (empty($data)){
+
+            return redirect()->route('index')->with('info', 'Votre adresse e-mail est déjà confirmé');
+        }
+
+        User::whereToken($token)->first()->hasVerified();
+
+        $data->save();
+
+        return redirect('login')->with('success', 'Votre adresse e-mail a été confirmé. Connectez-vous');
+    }
+
 }

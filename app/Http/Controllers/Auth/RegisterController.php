@@ -91,22 +91,6 @@ class RegisterController extends Controller
         return redirect()->route('welcome', ['email' => addslashes($request->input('email')), 'token' => bin2hex(random_bytes(32))]);
     }
 
-    public function confirmEmail($token){
-        $data = User::where('token', $token)->first();
-
-        if (empty($data)){
-
-            dd($data);
-            return redirect()->route('index')->with('info', 'Votre adresse e-mail est déjà confirmé');
-        }
-
-        User::whereToken($token)->first()->hasVerified();
-
-        $data->save();
-
-        return redirect('login')->with('success', 'Votre adresse e-mail a été confirmé. Connectez-vous');
-    }
-
     public function welcome(){
 
         $email = Input::get('email');

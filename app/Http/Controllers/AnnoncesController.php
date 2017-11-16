@@ -65,6 +65,7 @@ class AnnoncesController extends Controller
     {
         //
         $annonce = Annonce::where('id', $annonce->id )->first();
+
         return view('pages.description', ["annonce" => $annonce]);
 
     }
