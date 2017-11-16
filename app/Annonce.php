@@ -28,4 +28,8 @@ class Annonce extends Model
     public function categorie(){
         return $this->belongsTo('App\Category');
     }
+
+    public function themes(){
+        return $this->belongsToMany('App\Theme');
+    }
 }

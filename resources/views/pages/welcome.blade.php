@@ -32,106 +32,27 @@
 
     <section class="container" style="padding-top: 300px;">
 
-        <div class="u-heading-v5-2 g-mb-20">
-            <h2 class="text-uppercase h3 u-heading-v5__title">Nous recommandons</h2>
-        </div>
-        <div class="row text-center">
 
-            <div class="col-md-3 g-mb-30">
-                <a class=" d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_3--after" href="{{ route('description_path') }}">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img4.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Maquis Shanghai </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img5.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img6.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-            </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img4.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img4.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Maquis Shanghai </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img5.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img6.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-            </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img7.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Elitut eleifend nisl </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img8.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img9.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img10.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-            </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img1.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img1.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> In hac habitasse </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img11.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img12.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img13.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <a>Voir plus</a>
-            </div>
-        </div>
     </section>
 
     <section class="container">
-
+        @foreach($themes as $theme)
         <div class="u-heading-v5-2 g-mb-20">
-            <h2 class="text-uppercase h3 u-heading-v5__title">Les points chauds d'abidjan</h2>
+            <h2 class="text-uppercase h3 u-heading-v5__title">{{ $theme->libelle }}</h2>
         </div>
+
         <div class="row text-center">
 
             <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img4.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
+                <a class=" d-block u-block-hover u-bg-overlay  g-bg-black-opacity-0_5--after" href="/annonces/" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
                     <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img4.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Maquis Shanghai </strong>
+                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10">  </strong>
                 </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img5.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img6.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
             </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img4.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img4.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Maquis Shanghai </strong>
-                </a>
 
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img5.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img6.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-2-hidden">
-            </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img7.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> Elitut eleifend nisl </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img8.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img9.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img10.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-3-hidden">
-            </div>
-            <div class="col-md-3 g-mb-30">
-                <a class="js-fancybox d-block u-block-hover u-bg-overlay u-bg-overlay--v1 g-bg-black-opacity-0_5--after" href="../../assets/img-temp/400x270/img1.jpg" title="Lightbox Gallery" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                    <img class="img-fluid u-block-hover__main--zoom-v1" src="../../assets/img-temp/400x270/img1.jpg" alt="Image Description">
-                    <strong class="h5 d-block w-100 u-bg-overlay__inner g-absolute-centered g-px-20 g-font-weight-400 g-color-white g-mt-10"> In hac habitasse </strong>
-                </a>
-
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img11.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img12.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <img class="g-hidden-xs-up" src="../../assets/img-temp/400x270/img13.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery-13-4-hidden">
-                <a>Voir plus</a>
-            </div>
         </div>
+        @endforeach
     </section>
-
 
 </div>
 @endsection

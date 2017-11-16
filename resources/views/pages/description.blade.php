@@ -67,12 +67,7 @@
             <h2 class="h3 u-heading-v1__title">Description</h2>
         </div>
         <div>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-        <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-            sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-        <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-            sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+        {{ $annonce->description }}
         </div>
         </div>
         <div class="col-md-4">
@@ -84,12 +79,7 @@
         <div class="u-heading-v1-1 g-bg-main g-brd-gray-light-v2 g-mb-20">
             <h2 class="h3 u-heading-v1__title">Services proposés</h2>
         </div>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-        <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-            sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-        <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
-            sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+        ==
     </section>
     <section class="container">
 

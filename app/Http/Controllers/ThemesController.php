@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Annonce;
 use App\Theme;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,15 @@ class ThemesController extends Controller
     public function index()
     {
         //
-        $themes = Theme::all()->orderBy('name','asc')->get();
-        return view('pages.welcome', ["themes"=> $themes]);
+        $themes = \DB::table('themes')->select('id','libelle')->get();
+
+//
+       $annoncesParTheme = \DB::table('annonces','themes')->join('annonces_themes', 'annonces.id', '=', 'annonces_themes.id_annonces')
+                                   ->join('themes', 'themes.id', 'annonces_themes.id_themes' )
+                                   ->select('annonces.*', 'themes.*')->where('themes.id', 1)->get();
+
+
+        return view('pages.welcome', ["themes" => $themes, "ann" => $annoncesParTheme]);
     }
 
     /**
