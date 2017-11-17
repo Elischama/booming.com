@@ -16,17 +16,19 @@ Route::get('/', [
     'uses' => 'AnnoncesController@index'
 ]);
 
-Route::get('/hotels', 'AnnoncesController@AnnonceList')->name('annonce.list');
+Route::get('/hotels', 'AnnoncesController@AnnonceHotel')->name('annonce.hotel');
+Route::get('/restaurants', 'AnnoncesController@AnnonceResto')->name('annonce.resto');
+Route::get('/maquis', 'AnnoncesController@AnnonceMaqui')->name('annonce.maquis');
 
-Route::get('/maquis', [
-    'as' => 'maquis_path',
-    'uses' => 'PagesController@maquis'
-]);
-
-Route::get('/restaus', [
-    'as' => 'restaus_path',
-    'uses' => 'PagesController@restaus'
-]);
+//Route::get('/maquis', [
+//    'as' => 'maquis_path',
+//    'uses' => 'PagesController@maquis'
+//]);
+//
+//Route::get('/restaus', [
+//    'as' => 'restaus_path',
+//    'uses' => 'PagesController@restaus'
+//]);
 
 Route::get('/description', [
    'as' => 'description_path',
@@ -53,19 +55,19 @@ Route::group(['prefix' => 'user/account', 'middleware' => 'auth'], function () {
 
     // crud annonce
     Route::group(['prefix' => 'annonce'], function(){
-        Route::get('/annonce', 'UserController@UserAnnonce')->name('user.account.annonce');
-        Route::get('/annonce/edit', 'UserController@UserAnnonce')->name('user.account.annonce.edit');
-        Route::post('/annonce/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
-        Route::post('/annonce/{id}/update', 'UserController@UserAnnonceUpdate')->name('user.account.annonce.update');
-        Route::get('/annonce/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
-        Route::get('/annonce/archive', 'UserController@UserAnnonceArchive')->name('user.account.annonce.archive');
+        Route::get('/', 'UserController@UserAnnonce')->name('user.account.annonce');
+        Route::get('/edit', 'UserController@UserAnnonce')->name('user.account.annonce.edit');
+        Route::post('/save', 'UserController@UserAnnonceSave')->name('user.account.annonce.save');
+        Route::post('/{id}/update', 'UserController@UserAnnonceUpdate')->name('user.account.annonce.update');
+        Route::get('/list', 'UserController@UserAnnonceList')->name('user.account.annonce.list');
+        Route::get('/archive', 'UserController@UserAnnonceArchive')->name('user.account.annonce.archive');
 
-        Route::get('/annonce/{id}/disable', 'UserController@UserAnnonceDisable')->name('user.account.annonce.disable');
-        Route::get('/annonce/{id}/enable', 'UserController@UserAnnonceEnable')->name('user.account.annonce.enable');
-        Route::get('/annonce/{id}/delete', 'UserController@UserAnnonceDelete')->name('user.account.annonce.delete');
+        Route::get('/{id}/disable', 'UserController@UserAnnonceDisable')->name('user.account.annonce.disable');
+        Route::get('/{id}/enable', 'UserController@UserAnnonceEnable')->name('user.account.annonce.enable');
+        Route::get('/{id}/delete', 'UserController@UserAnnonceDelete')->name('user.account.annonce.delete');
 
-        Route::get('/annonce/delete/strong-point', 'UserController@UserAnnonceStrongPointDelete')->name('user.account.annonce.strong.point.delete');
-        Route::get('/annonce/delete/delete-picture', 'UserController@UserAnnonceImageDelete')->name('user.account.annonce.image.delete');
+        Route::get('/delete/strong-point', 'UserController@UserAnnonceStrongPointDelete')->name('user.account.annonce.strong.point.delete');
+        Route::get('/delete/delete-picture', 'UserController@UserAnnonceImageDelete')->name('user.account.annonce.image.delete');
     });
 
     Route::group(['prefix' => 'setting'], function(){

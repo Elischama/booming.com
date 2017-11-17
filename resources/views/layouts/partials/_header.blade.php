@@ -23,39 +23,31 @@
 
                     <ul class="navbar-nav text-uppercase g-font-weight-600 mr-auto">
                         <li class="nav-item g-mx-25--lg">
-                            <a href="" class="nav-link px-0">Hôtels
-
-                            </a>
+                            <a href="{{ route('annonce.hotel') }}" class="nav-link px-0">Hôtels</a>
                         </li>
                         <li class="nav-item g-mx-25--lg">
-                            <a href="{{ route('maquis_path') }}" class="nav-link px-0">Maquis
-
-                            </a>
+                            <a href="{{ route('annonce.maquis') }}" class="nav-link px-0">Maquis</a>
                         </li>
                         <li class="nav-item g-mx-25--lg g-mr-0--lg">
-                            <a href="" class="nav-link px-0">Restaurants
-
-                            </a>
+                            <a href="{{ route('annonce.resto') }}" class="nav-link px-0">Restaurants</a>
                         </li>
                     </ul>
 
                     <ul id="" class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
                         @if(Auth::guest())
                             <li class="nav-item g-mx-20--lg">
-                                <a href="" class="nav-link px-0">S'inscrire
+                                <a href="/register" class="nav-link px-0">S'inscrire
 
                                 </a>
                             </li>
                             <li class="nav-item g-mx-20--lg">
-                                <a href="" class="nav-link px-0">Se connecter
+                                <a href="/login" class="nav-link px-0">Se connecter
 
                                 </a>
                             </li>
                         @else
                             <li class="nav-item g-mx-20--lg">
-                                <a href="" class="nav-link px-0"><i class="fa fa-user-circle"></i> {{ Auth::user()->lastname }}
-
-                                </a>
+                                <a href="{{ route('user.account') }}" class="nav-link px-0"><i class="fa fa-user-circle"></i> {{ Auth::user()->lastname }}</a>
                             </li>
                         @endif
                     </ul>

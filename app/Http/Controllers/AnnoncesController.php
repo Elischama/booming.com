@@ -18,21 +18,51 @@ class AnnoncesController extends Controller
         return view('pages.welcome', ["nouv" => $nouveautes]);
     }
 
-    public function AnnonceList(){
+    public function AnnonceHotel(){
 
-        $annonces = Annonce::where('categorie_id', 1)->get();
+        $annonces = Annonce::where('categorie_id', 1)->paginate(10);
+
+        foreach ($annonces as $annonce){
+            $annonce['strong_point'] = explode(',', $annonce->strong_point);
+        }
+//        $strongPoins[] = explode(',', $annonces->strong_point);
+
         return view ('pages.list', compact('annonces'));
     }
 
-    public function listeMaquis(){
-        $annonce = Annonce::where('categorie_id', 2)->get();
-        return view('pages.maquis', ["annonces" => $annonce]);
+    public function AnnonceResto(){
+
+        $annonces = Annonce::where('categorie_id', 2)->paginate(10);
+
+        foreach ($annonces as $annonce){
+            $annonce['strong_point'] = explode(',', $annonce->strong_point);
+        }
+//        $strongPoins[] = explode(',', $annonces->strong_point);
+
+        return view ('pages.list', compact('annonces'));
     }
 
-    public function listeRestaus(){
-        $annonce = Annonce::where('categorie_id', 3)->get();
-        return view('pages.restaus', ["annonces" => $annonce]);
+    public function AnnonceMaqui(){
+
+        $annonces = Annonce::where('categorie_id', 3)->paginate(10);
+
+        foreach ($annonces as $annonce){
+            $annonce['strong_point'] = explode(',', $annonce->strong_point);
+        }
+//        $strongPoins[] = explode(',', $annonces->strong_point);
+
+        return view ('pages.list', compact('annonces'));
     }
+
+//    public function listeMaquis(){
+//        $annonce = Annonce::where('categorie_id', 2)->get();
+//        return view('pages.maquis', ["annonces" => $annonce]);
+//    }
+//
+//    public function listeRestaus(){
+//        $annonce = Annonce::where('categorie_id', 3)->get();
+//        return view('pages.restaus', ["annonces" => $annonce]);
+//    }
 
 
 

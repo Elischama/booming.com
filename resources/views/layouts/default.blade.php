@@ -44,6 +44,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/tooltip/tooltipster.bundle.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/tooltip/plugin/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css" />
 
+    @yield('css')
+
     <!-- upload file plugin -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
