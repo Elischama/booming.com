@@ -21,10 +21,10 @@ class AnnoncesController extends Controller
         return view('pages.welcome', ["nouv" => $nouveautes]);
     }
 
-    public function listeHotels(){
+    public function AnnonceList(){
 
-       /* $annonce = Annonce::where('categorie_id', 1)->get();
-        return view ('pages.hotels', ["annonces" => $annonce]);*/
+        $annonces = Annonce::where('categorie_id', 1)->get();
+        return view ('pages.list', compact('annonces'));
     }
 
     public function listeMaquis(){

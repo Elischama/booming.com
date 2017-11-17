@@ -29,9 +29,6 @@ class UserController extends Controller
 
     public function UserAnnonce(Guard $auth){
 
-<<<<<<< HEAD
-        return view('user.images');
-=======
         $id = Input::get('id');
 
         if (!empty($id)) {
@@ -54,7 +51,6 @@ class UserController extends Controller
 
             return view('user.annonces');
         }
->>>>>>> ffc412c9f59595c555d5f091e005938365f17860
     }
 
     public function UserAnnonceSave(Request $request, Guard $auth){

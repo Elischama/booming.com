@@ -16,10 +16,7 @@ Route::get('/', [
     'uses' => 'AnnoncesController@index'
 ]);
 
-Route::get('/hotels', [
-    'as' => 'hotels_path',
-    'uses' => 'AnnoncesController@listeHotels'
-]);
+Route::get('/hotels', 'AnnoncesController@AnnonceList')->name('annonce.list');
 
 Route::get('/maquis', [
     'as' => 'maquis_path',
@@ -29,11 +26,6 @@ Route::get('/maquis', [
 Route::get('/restaus', [
     'as' => 'restaus_path',
     'uses' => 'PagesController@restaus'
-]);
-
-Route::get('/hotels', [
-    'as' => 'hotels_path',
-    'uses' => 'AnnoncesController@listeHotels'
 ]);
 
 Route::get('/description', [
