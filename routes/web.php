@@ -13,7 +13,7 @@
 
 Route::get('/', [
     'as' => 'root_path',
-    'uses' => 'ThemesController@index'
+    'uses' => 'AnnoncesController@index'
 ]);
 
 Route::get('/hotels', [
