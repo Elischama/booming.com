@@ -32,4 +32,8 @@ class Annonce extends Model
     public function themes(){
         return $this->belongsToMany('App\Theme');
     }
+
+    public function comments(){
+        return $this->hasMany('App\Commentaire');
+    }
 }

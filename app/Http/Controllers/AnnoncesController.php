@@ -15,7 +15,12 @@ class AnnoncesController extends Controller
     public function index()
     {
         $nouveautes = Annonce::where('created_at', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->take(4)->orderBy('created_at','desc')->get();
-        return view('pages.welcome', ["nouv" => $nouveautes]);
+        $recommandes = Annonce::where('promoted', '=', 1)->take(4)->get();
+        $moyennes = \DB::table('annonces')->join('commentaires','annonces.id','commentaires.annonces_id')->select('annonces.*', \DB::raw('AVG(commentaires.note) AS moy'))->groupBy('annonces.id')->orderBy('moy','desc')->take(4)->get();
+        $plusVus = Annonce::orderBy('vues','desc')->get() ;
+
+
+        return view('pages.welcome', compact("nouveautes", "moyennes", "plusVus", "recommandes"));
     }
 
     public function AnnonceHotel(){
@@ -98,6 +103,9 @@ class AnnoncesController extends Controller
     {
         //
         $annonce = Annonce::where('id', $annonce->id )->first();
+
+        $annonce->vues++;
+        $annonce->save();
 
         return view('pages.description', ["annonce" => $annonce]);
 

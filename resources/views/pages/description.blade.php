@@ -68,7 +68,7 @@
                 <h2 class="h3 u-heading-v1__title">Description</h2>
             </div>
             <div>
-            {{ $annonce->description }}
+            {{ $annonce->description }}<br>{{ $annonce->vues }}
             </div>
             </div>
             <div class="col-md-4">
