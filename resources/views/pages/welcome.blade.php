@@ -38,14 +38,13 @@
             <div class="col-sm-6 col-lg-3 g-mb-30">
                 <!-- Blog Grid Overlap Blocks -->
                 <article>
-                    <img class="img-fluid w-100" src="../../assets/img-temp/400x270/img7.jpg" alt="Image Description">
+                    <img class="img-fluid w-100" src="/assets/img/annonces/{{ $nouveau->vignette }}" alt="Image Description">
                     <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
                         <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">{{ $nouveau->name }}</span>
                         <h2 class="h5 g-color-black g-font-weight-600 mb-3">
                             <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="/annonces/{{ $nouveau->id }}">{{ $nouveau->name }}</a>
                         </h2>
-                        <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
-                        <a class="g-font-size-13" href="#">Read more...</a>
+
                     </div>
                 </article>
                 <!-- End Blog Grid Overlap Blocks -->
@@ -53,6 +52,52 @@
             @endforeach
         </div>
     </section>
+
+    <section class="container" style="padding-top: 250px;">
+
+            <div class="row">
+
+                Les mieux notés
+                    <div class="col-sm-6 col-lg-3 g-mb-30">
+                        <!-- Blog Grid Overlap Blocks -->
+                        <article>
+                            <img class="img-fluid w-100" src="/assets/img/annonces/" alt="Image Description">
+                            <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
+                                <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2"></span>
+                                <h2 class="h5 g-color-black g-font-weight-600 mb-3">
+                                    <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="/annonces/"></a>
+                                </h2>
+
+                            </div>
+                        </article>
+                        <!-- End Blog Grid Overlap Blocks -->
+                    </div>
+
+            </div>
+        </section>
+
+        <section class="container" style="padding-top: 250px;">
+
+            <div class="row">
+
+                Les plus vus
+                <div class="col-sm-6 col-lg-3 g-mb-30">
+                    <!-- Blog Grid Overlap Blocks -->
+                    <article>
+                        <img class="img-fluid w-100" src="/assets/img/annonces/" alt="Image Description">
+                        <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
+                            <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2"></span>
+                            <h2 class="h5 g-color-black g-font-weight-600 mb-3">
+                                <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="/annonces/"></a>
+                            </h2>
+
+                        </div>
+                    </article>
+                    <!-- End Blog Grid Overlap Blocks -->
+                </div>
+
+            </div>
+        </section>
 
 
 

@@ -15,6 +15,9 @@ class AnnoncesController extends Controller
     public function index()
     {
         $nouveautes = Annonce::where('created_at', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->take(4)->orderBy('created_at','desc')->get();
+        $recommandes = Annonce::where('promoted', '=', 1)->take(4)->get();
+        $mieuxNotes;
+        $plusVus;
         return view('pages.welcome', ["nouv" => $nouveautes]);
     }
 
