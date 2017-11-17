@@ -15,7 +15,7 @@ class AddNoteToCommentaires extends Migration
     {
         Schema::table('commentaires', function (Blueprint $table) {
             //
-            $table->float('note', 1,1);
+            $table->float('note', 2,1)->after('comment')->default(0);
         });
     }
 

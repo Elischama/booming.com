@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCommentToCommentaires extends Migration
+class AddVuesToAnnoncesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddCommentToCommentaires extends Migration
      */
     public function up()
     {
-        Schema::table('commentaires', function (Blueprint $table) {
+        Schema::table('annonces', function (Blueprint $table) {
             //
-            $table->string('comment')->after('id');
+            $table->integer('vues')->after('email')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ class AddCommentToCommentaires extends Migration
      */
     public function down()
     {
-        Schema::table('commentaires', function (Blueprint $table) {
+        Schema::table('annonces', function (Blueprint $table) {
             //
         });
     }
