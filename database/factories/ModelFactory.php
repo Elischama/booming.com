@@ -46,3 +46,19 @@ $factory->define(App\Annonce::class, function (Faker\Generator $faker) {
         'user_id' => $faker->randomElement([12,10,11,14,40,41,43,45,47,49,13,15,17,19,21,42,44,46,48]),
     ];
 });
+
+
+$factory->define(App\Image::class, function (Faker\Generator $faker) {
+
+    $annonces = \App\Annonce::OrderBy('id', 'desc')->get();
+
+    foreach ($annonces as $annonce) {
+        for ($i=0; $i<4; $i++){
+            return [
+                'name' => $faker->randomElement(['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg',]),
+                'annonce_id' => $annonce->id,
+            ];
+        }
+    }
+
+});
