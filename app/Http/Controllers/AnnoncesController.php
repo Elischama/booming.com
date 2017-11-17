@@ -14,7 +14,8 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-        return ("Erruer 404");
+        $nouveautes = Annonce::where('created_at', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->take(4)->orderBy('created_at','desc')->get();
+        return view('pages.welcome', ["nouv" => $nouveautes]);
     }
 
     public function AnnonceList(){
@@ -32,6 +33,8 @@ class AnnoncesController extends Controller
         $annonce = Annonce::where('categorie_id', 3)->get();
         return view('pages.restaus', ["annonces" => $annonce]);
     }
+
+
 
 
     /**

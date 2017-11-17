@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Annonce;
 use App\Theme;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,7 @@ class ThemesController extends Controller
      */
     public function index()
     {
-        //
-        $themes = Theme::all()->orderBy('name','asc')->get();
-        return view('pages.welcome', ["themes"=> $themes]);
+
     }
 
     /**

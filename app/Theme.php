@@ -11,4 +11,8 @@ class Theme extends Model
         'id',
         'libelle'
     ];
+
+    public function annonces(){
+        return $this->belongsToMany('App\Annonce');
+    }
 }

@@ -13,7 +13,7 @@
 
 Route::get('/', [
     'as' => 'root_path',
-    'uses' => 'PagesController@home'
+    'uses' => 'AnnoncesController@index'
 ]);
 
 Route::get('/hotels', 'AnnoncesController@AnnonceList')->name('annonce.list');
@@ -120,5 +120,7 @@ Route::group(['prefix' => 'adminzone', 'middleware' => 'IsAdmin'], function(){
 //        Route::post('/new-admin', 'Admin\AdminController@AddNewAdmin')->name('new.admin');
 //        Route::get('/new-admin/{id}/add', 'Admin\AdminController@AddNewAdminAdd')->name('new.admin.add');
     });
+
+
 
 });
