@@ -7,33 +7,21 @@
                     <div class="row">
                         <div class="col-md-6 align-self-center">
                             <a class="js-fancybox d-block u-bg-overlay g-bg-black-opacity-0_5--after g-mb-30 g-mb-0--md" data-fancybox-gallery="lightbox-gallery--05" href="/assets/img-temp/800x700/img1.jpg" title="Lightbox Gallery">
-                                <img class="img-fluid" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description">
+                                <img class="img-fluid" src="/assets/img/annonces/{{ $annonce->images[0]->name }}" alt="Image Description">
 
                                 <span class="u-bg-overlay__inner g-font-size-18 g-color-white g-pos-abs g-left-20 g-bottom-20">
-                            Pipsum dolor sit amet
+                           <?php
+
+                                   ?>
                           </span>
                             </a>
                         </div>
-                        <div class="col-md-3">
-                            <a class="js-fancybox d-block u-bg-overlay g-bg-black-opacity-0_5--after g-mb-30" data-fancybox-gallery="lightbox-gallery--05" href="/assets/img-temp/500x450/img1.jpg" title="Lightbox Gallery">
-                                <img class="img-fluid" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description">
 
-                                <span class="u-bg-overlay__inner g-color-white g-pos-abs g-left-20 g-bottom-20">
-                            Platea dictumst
-                          </span>
-                            </a>
 
-                            <a class="js-fancybox d-block u-bg-overlay g-bg-black-opacity-0_5--after g-mb-30 g-mb-0--md" data-fancybox-gallery="lightbox-gallery--05" href="/assets/img-temp/500x450/img2.jpg" title="Lightbox Gallery">
-                                <img class="img-fluid" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description">
 
-                                <span class="u-bg-overlay__inner g-color-white g-pos-abs g-left-20 g-bottom-20">
-                            Hendrerit curabitur
-                          </span>
-                            </a>
-                        </div>
                         <div class="col-md-3">
                             <a class="js-fancybox d-block u-bg-overlay g-bg-black-opacity-0_5--after g-mb-30" data-fancybox-gallery="lightbox-gallery--05" href="/assets/img-temp/500x450/img3.jpg" title="Lightbox Gallery">
-                                <img class="img-fluid" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description">
+                                <img class="img-fluid" src="/assets/img/annonces/1.jpg" alt="Image Description">
 
                                 <span class="u-bg-overlay__inner g-color-white g-pos-abs g-left-20 g-bottom-20">
                             Consectetur adipiscing
@@ -41,7 +29,7 @@
                             </a>
 
                             <a class="js-fancybox d-block u-bg-overlay g-bg-black-opacity-0_5--after g-mb-30 g-mb-0--md" data-fancybox-gallery="lightbox-gallery--05" href="/assets/img-temp/500x450/img4.jpg" title="Lightbox Gallery">
-                                <img class="img-fluid" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description">
+                                <img class="img-fluid" src="/assets/img/annonces/1.jpg" alt="Image Description">
 
                                 <span class="u-bg-overlay__inner g-absolute-centered g-color-white">
                             <span class="g-font-size-46">10+</span>
@@ -52,7 +40,7 @@
                             <img class="g-hidden-xs-up" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery--05">
                             <img class="g-hidden-xs-up" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery--05">
                             <img class="g-hidden-xs-up" src="/assets/img-temp/600x450/img1.jpg" alt="Image Description" data-fancybox-gallery="lightbox-gallery--05">
-                        </div>
+                        </div >
                     </div>
                 </div>
             </div>
@@ -68,10 +56,13 @@
                 <h2 class="h3 u-heading-v1__title">Description</h2>
             </div>
             <div>
-            {{ $annonce->description }}<br>{{ $annonce->vues }}
+            {{ $annonce->description }}<br>
             </div>
             </div>
             <div class="col-md-4">
+                @foreach($annonce->images as $item)
+                    {{ $item->name }}
+                @endforeach
 
             </div>
         </section>

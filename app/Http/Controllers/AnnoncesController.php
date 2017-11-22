@@ -59,19 +59,6 @@ class AnnoncesController extends Controller
         return view ('pages.list', compact('annonces'));
     }
 
-//    public function listeMaquis(){
-//        $annonce = Annonce::where('categorie_id', 2)->get();
-//        return view('pages.maquis', ["annonces" => $annonce]);
-//    }
-//
-//    public function listeRestaus(){
-//        $annonce = Annonce::where('categorie_id', 3)->get();
-//        return view('pages.restaus', ["annonces" => $annonce]);
-//    }
-
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -102,12 +89,16 @@ class AnnoncesController extends Controller
     public function show(Annonce $annonce)
     {
         //
-        $annonce = Annonce::where('id', $annonce->id )->first();
+       // $annonce = Annonce::where('id', $annonce->id )->first();
+
+        $annonce = Annonce::find($annonce->id);
 
         $annonce->vues++;
         $annonce->save();
 
-        return view('pages.description', ["annonce" => $annonce]);
+       // dd($annonce->all());
+
+        return view('pages.description', ["annonce" => $annonce ]);
 
     }
 

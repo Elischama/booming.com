@@ -5,7 +5,7 @@
 <!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 14:05:30 GMT -->
 <head>
     <!-- Title -->
-    <title>Classic Header - One Page Scrolling | Unify - Responsive Website Template</title>
+    <title>{{ page_title(isset($title) ? $title : '') }}</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
