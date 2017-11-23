@@ -70,6 +70,8 @@ class UserController extends Controller
             return back()->withErrors($validator)->withInput()->with('danger', 'Veullez renseigner les champs importants');
         }else{
 
+            $slug = Annonce::createSlug($request->input('name')).'-'.str_replace('-', '', date('Y-m-d'));
+
             $data = Annonce::create([
                 'categorie_id' => $request->input('categorie_id'),
                 'name' => addslashes($request->input('name')),
@@ -80,7 +82,8 @@ class UserController extends Controller
                 'email' => $request->input('email'),
                 'strong_point' => addslashes($request->input('strong_point')),
                 'description' => addslashes($request->input('description')),
-                'user_id' => $auth->id()
+                'user_id' => $auth->id(),
+                'slug' => $slug
             ]);
 
             if (count($request->file('image')) > 0){
@@ -185,6 +188,8 @@ class UserController extends Controller
 
             $data = Annonce::find($id);
 
+            $slug = Annonce::createSlug($request->input('name')).'-'.str_replace('-', '', strtotime('Y-m-d', $data->create_at));
+
             $data->categorie_id = $request->input('categorie_id');
             $data->name = addslashes($request->input('name'));
             $data->city = addslashes($request->input('city'));
@@ -192,6 +197,7 @@ class UserController extends Controller
             $data->mobile = $request->input('mobile');
             $data->fixe = $request->input('fixe');
             $data->email = $request->input('email');
+            $data->slug = $slug;
 
             if (!empty($request->input('strong_point'))){
                 $data->strong_point = $data->strong_point .','. addslashes($request->input('strong_point'));

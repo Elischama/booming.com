@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsersIdToCommentairesTable extends Migration
+class SlugForAnnonceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class AddUsersIdToCommentairesTable extends Migration
      */
     public function up()
     {
-        Schema::table('commentaires', function (Blueprint $table) {
-            //
-            $table->integer('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users');
+        Schema::table('annonces', function (Blueprint $table) {
+            $table->string('slug');
         });
     }
 
@@ -27,7 +25,7 @@ class AddUsersIdToCommentairesTable extends Migration
      */
     public function down()
     {
-        Schema::table('commentaires', function (Blueprint $table) {
+        Schema::table('annonces', function (Blueprint $table) {
             //
         });
     }

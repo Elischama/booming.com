@@ -3,7 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Annonce;
+use App\Commentaire;
+use App\Image;
+use App\Note;
+use App\Reservation;
+use App\User;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AnnoncesController extends Controller
 {
@@ -32,7 +40,7 @@ class AnnoncesController extends Controller
         }
 //        $strongPoins[] = explode(',', $annonces->strong_point);
 
-        return view ('pages.list', compact('annonces'));
+        return view ('pages.annonces.list', compact('annonces'));
     }
 
     public function AnnonceResto(){
@@ -44,7 +52,7 @@ class AnnoncesController extends Controller
         }
 //        $strongPoins[] = explode(',', $annonces->strong_point);
 
-        return view ('pages.list', compact('annonces'));
+        return view ('pages.annonces.list', compact('annonces'));
     }
 
     public function AnnonceMaqui(){
@@ -56,21 +64,112 @@ class AnnoncesController extends Controller
         }
 //        $strongPoins[] = explode(',', $annonces->strong_point);
 
-        return view ('pages.list', compact('annonces'));
+        return view ('pages.annonces.list', compact('annonces'));
     }
 
-//    public function listeMaquis(){
-//        $annonce = Annonce::where('categorie_id', 2)->get();
-//        return view('pages.maquis', ["annonces" => $annonce]);
-//    }
-//
-//    public function listeRestaus(){
-//        $annonce = Annonce::where('categorie_id', 3)->get();
-//        return view('pages.restaus', ["annonces" => $annonce]);
-//    }
+    public function showAnnonce($slug){
+
+        $data = Annonce::where('slug', $slug)->first();
+
+        if (empty($data)){
+            return redirect('/404');
+        }
+
+        $data->vues = $data->vues + 1;
+        $data->save();
+
+        $data['service'] = explode(',', $data->strong_point);
 
 
+        $pictures = Image::where('annonce_id', $data->id)->get();
 
+        //commentaire
+        $comments = Commentaire::where('annonce_id', $data->id)->get();
+
+        //note
+        $notes = Note::where('annonce_id', $data->id)->get();
+
+        if (empty($notes)){
+            $data['note'] = 0;
+        }else{
+            $noteSomme = 0;
+            foreach ($notes as $value) {
+                $noteSomme = $noteSomme + $value->note;
+            }
+
+            $data['note'] = ceil($noteSomme / 5);
+        }
+
+        return view('pages.annonces.show', compact('data', 'pictures', 'comments'));
+    }
+
+    public function CommentSave(Request $request, $id, Guard $auth){
+
+        $validator = Validator::make($request->all(), [
+            'comment' => 'required'
+        ]);
+        if ($validator->fails()){
+            return response()->json(['error' => 'Veuillez renseigner votre commentaire']);
+        }else{
+
+            Commentaire::create([
+                'name' => $request->input('name'),
+                'comment' => $request->input('comment'),
+                'user_id' => $auth->id(),
+                'annonce_id' => $id
+            ]);
+
+            $user = User::find($auth->id());
+        }
+
+        if (!empty($user->avatar)) {
+            return response()->json(['username' => $user->firstname . ' ' . $user->lastname, 'avatar' => $user->avatar, 'comment' => $request->input('comment')]);
+        }else{
+            return response()->json(['username' => $user->firstname . ' ' . $user->lastname, 'comment' => $request->input('comment')]);
+        }
+    }
+
+    public function NoteSave(Request $request, $id){
+
+        Note::create([
+            'note' => $request->input('note'),
+            'remarque' => $request->input('remarque'),
+            'annonce_id' => $id
+        ]);
+
+        return response()->json(['success' => 'ok']);
+    }
+
+    public function ReservationSave(Request $request, $id, Guard $auth){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile' => 'required',
+            'message' => 'required'
+        ]);
+        if ($validator->fails()){
+
+            if ($request->ajax()) {
+                return response()->json(['error' => 'Veuillez renseigner tous les champs']);
+            }else{
+                return back()->withErrors($validator)->withInput()->with('danger', 'Veuillez renseigner tous les champs');
+            }
+        }else{
+
+            Reservation::create([
+                'name' => $request->input('name'),
+                'mobile' => $request->input('mobile'),
+                'message' => $request->input('message'),
+                'annonce_id' => $id
+            ]);
+        }
+
+        if ($request->ajax()) {
+            return response()->json(['success' => 'Votre message a été envoyé à l\'annonceur, il vous recontactera pour confirmation']);
+        }else{
+            return back()->with('success', 'Votre message a été envoyé à l\'annonceur, il vous recontactera pour confirmation');
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

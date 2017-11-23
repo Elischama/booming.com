@@ -198,4 +198,128 @@ $(function(){
 
     });
 
+    $('.note-1').on('click', function(e){
+        e.preventDefault();
+
+        $('.note-input').fadeIn();
+
+        $('#NoteGroup-0').css('display', 'none');
+        $('#NoteGroup-1').css('display', 'block');
+        $('#NoteGroup-2').css('display', 'none');
+        $('#NoteGroup-3').css('display', 'none');
+        $('#NoteGroup-4').css('display', 'none');
+        $('#NoteGroup-5').css('display', 'none');
+        $('.note-input-hidden').html('<input name="note" type="hidden" value="1">');
+    });
+
+    $('.note-2').on('click', function(e){
+        e.preventDefault();
+
+        $('.note-input').fadeIn();
+        $('#NoteGroup-0').css('display', 'none');
+        $('#NoteGroup-1').css('display', 'none');
+        $('#NoteGroup-2').css('display', 'block');
+        $('#NoteGroup-3').css('display', 'none');
+        $('#NoteGroup-4').css('display', 'none');
+        $('#NoteGroup-5').css('display', 'none');
+        $('.note-input-hidden').html('<input name="note" type="hidden" value="2">');
+    });
+
+    $('.note-3').on('click', function(e){
+        e.preventDefault();
+
+        $('.note-input').fadeIn();
+        $('#NoteGroup-0').css('display', 'none');
+        $('#NoteGroup-1').css('display', 'none');
+        $('#NoteGroup-2').css('display', 'none');
+        $('#NoteGroup-3').css('display', 'block');
+        $('#NoteGroup-4').css('display', 'none');
+        $('#NoteGroup-5').css('display', 'none');
+        $('.note-input-hidden').html('<input name="note" type="hidden" value="3">');
+    });
+
+    $('.note-4').on('click', function(e){
+        e.preventDefault();
+
+        $('.note-input').fadeIn();
+        $('#NoteGroup-0').css('display', 'none');
+        $('#NoteGroup-1').css('display', 'none');
+        $('#NoteGroup-2').css('display', 'none');
+        $('#NoteGroup-3').css('display', 'none');
+        $('#NoteGroup-4').css('display', 'block');
+        $('#NoteGroup-5').css('display', 'none');
+        $('.note-input-hidden').html('<input name="note" type="hidden" value="4">');
+    });
+
+    $('.note-5').on('click', function(e){
+        e.preventDefault();
+
+        $('.note-input').fadeIn();
+        $('#NoteGroup-0').css('display', 'none');
+        $('#NoteGroup-1').css('display', 'none');
+        $('#NoteGroup-2').css('display', 'none');
+        $('#NoteGroup-3').css('display', 'none');
+        $('#NoteGroup-4').css('display', 'none');
+        $('#NoteGroup-5').css('display', 'block');
+        $('.note-input-hidden').html('<input name="note" type="hidden" value="5">');
+    });
+
+    $('#NoteForm').on('submit', function (e) {
+        e.preventDefault();
+
+        var url = $('#NoteForm').attr('action');
+        var data = $("#NoteForm").serialize();
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            success: function (response) {
+                if(response.success) {
+                    $('#NoteForm').html('<div class="alert alert-success">Merci pour la note attibuée à cette annonce :)</div>');
+                }
+            },
+            errors: function () {
+                console.log('ca passe meme pas')
+            }
+        });
+    });
+
+    $('#ReservationForm').on('submit', function (e) {
+        e.preventDefault();
+
+        var url = $('#ReservationForm').attr('action');
+        var data = $("#ReservationForm").serialize();
+
+        $('#ReservationForm-submit').html('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            success: function (response) {
+
+                $('#ReservationForm-submit').html('Envoyer mon message');
+
+                if(response.success) {
+                    $('#ReservationForm')[0].reset();
+                    $('.flash-reservation').html('<div class="alert alert-success">'+ response.success +'</div>');
+                }else{
+                    $('.flash-reservation').html('<div class="alert alert-danger">'+ response.error +'</div>');
+                }
+            },
+            errors: function () {
+
+                $('#ReservationForm-submit').html('Envoyer mon message');
+                $('.flash-reservation').html('<div class="alert alert-danger">Une erreure est survenu, veuillez vérifier votre connxeion et réesayer</div>');
+            }
+        });
+    });
+
+    $('#ConnexionBlock-lin').on('click', function (e) {
+        e.preventDefault();
+
+        $('#ConnexionBlock').fadeIn(500);
+    })
+
 });

@@ -29,6 +29,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+
     /**
      * Handle a login request to the application.
      *

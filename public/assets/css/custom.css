@@ -41,3 +41,6 @@ article:hover .img-annonce{
 .resto-tag{
     background-color: #B6D436;
 }
+#NoteGroup-1, #NoteGroup-2, #NoteGroup-3, #NoteGroup-4, #NoteGroup-5, .note-input, #ConnexionBlock{
+    display: none;
+}

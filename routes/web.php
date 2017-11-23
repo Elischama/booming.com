@@ -16,9 +16,17 @@ Route::get('/', [
     'uses' => 'AnnoncesController@index'
 ]);
 
-Route::get('/hotels', 'AnnoncesController@AnnonceHotel')->name('annonce.hotel');
-Route::get('/restaurants', 'AnnoncesController@AnnonceResto')->name('annonce.resto');
-Route::get('/maquis', 'AnnoncesController@AnnonceMaqui')->name('annonce.maquis');
+Route::group(['prefix' => 'annonces'], function(){
+    Route::get('/hotels', 'AnnoncesController@AnnonceHotel')->name('annonce.hotel');
+    Route::get('/restaurants', 'AnnoncesController@AnnonceResto')->name('annonce.resto');
+    Route::get('/maquis', 'AnnoncesController@AnnonceMaqui')->name('annonce.maquis');
+    Route::get('/details/{slug}', 'AnnoncesController@showAnnonce')->name('annonce.detail');
+
+    Route::post('/comment/{id}/save', 'AnnoncesController@CommentSave')->name('comment.save');
+    Route::post('/note/{id}/save', 'AnnoncesController@NoteSave')->name('note.save');
+    Route::post('/reservation/{id}/save', 'AnnoncesController@ReservationSave')->name('reservation.save');
+});
+
 
 //Route::get('/maquis', [
 //    'as' => 'maquis_path',

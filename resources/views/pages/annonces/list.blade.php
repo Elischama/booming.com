@@ -14,7 +14,7 @@
     @include('layouts.partials.search')
 
 
-    <section class="g-pt-20 g-pb-90">
+    <section class="g-pt-60 g-pb-90">
         <div class="container">
 
             <div class="row">
@@ -41,13 +41,15 @@
                                         </div>
                                         @endif
                                         <div class="img-annonce-black">
-                                            <img class="img-responsive img-annonce" src="/assets/img/annonces/{{ $annonce->vignette }}" alt="{{ stripslashes($annonce->name) }}">
+                                            <a href="{{ route('annonce.detail', $annonce->slug) }}" title="{{ $annonce->name }}">
+                                                <img class="img-responsive img-annonce" src="/assets/img/annonces/{{ $annonce->vignette }}" alt="{{ stripslashes($annonce->name) }}">
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <header class="g-mb-15">
                                             <h2 class="h4 g-mb-5">
-                                                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#">{{ stripslashes($annonce->name) }}</a>
+                                                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{ route('annonce.detail', $annonce->slug) }}">{{ stripslashes($annonce->name) }}</a>
                                             </h2>
 
                                             <div class="d-lg-flex justify-content-between align-items-center g-mb-15">
@@ -58,10 +60,10 @@
                                                         <i class="fa fa-calendar g-pos-rel g-top-1 g-color-gray-dark-v5 g-mr-5"></i> {{ \Carbon\Carbon::parse($annonce->created_at)->format('d/m/Y')}}
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <i class="fa fa-eye g-pos-rel g-top-1 g-color-gray-dark-v5 g-mr-5"></i> 132,849 &nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-eye g-pos-rel g-top-1 g-color-gray-dark-v5 g-mr-5"></i> {{ $annonce->vues }} &nbsp;&nbsp;&nbsp;
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <i class="fa fa-comments-o g-pos-rel g-top-1 g-color-gray-dark-v5 g-mr-5"></i> 132
+                                                        <i class="fa fa-comments-o g-pos-rel g-top-1 g-color-gray-dark-v5 g-mr-5"></i> {{ count($annonce->comments) }}
                                                     </li>
                                                 </ul>
                                                 <!-- End Search Info -->
@@ -121,27 +123,32 @@
                                             </ul>
                                             <!-- End Search Info -->
 
+                                            @php($noteAll = 0)
+                                            @foreach($annonce->notes as $item)
+                                                @php($noteAll = $noteAll + $item->note)
+                                            @endforeach
+
+                                            @php($note = ceil($noteAll / 5))
                                             <!-- Search Rating -->
                                             <div>
                                                 <span class="js-rating g-color-primary mr-2" data-rating="5">
                                                     <div class="g-rating" style="display: inline-block; position: relative; z-index: 1; white-space: nowrap; margin-left: -2px; margin-right: -2px;">
-                                                        <div class="g-rating-forward" style="position: absolute; left: 0px; top: 0px; height: 100%; overflow: hidden; width: 100%;">
-                                                            <i class="fa fa-star" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                        </div>
-                                                        <div class="g-rating-backward" style="position: relative; z-index: 1;">
-                                                            <i class="fa fa-star-o" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star-o" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star-o" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star-o" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                            <i class="fa fa-star-o" style="margin-left: 2px; margin-right: 2px;"></i>
-                                                        </div>
+                                                        @if($note == 0)
+                                                            @include('pages.annonces.note.0')
+                                                        @elseif($note == 1)
+                                                            @include('pages.annonces.note.1')
+                                                        @elseif($note == 2)
+                                                            @include('pages.annonces.note.2')
+                                                        @elseif($note == 3)
+                                                            @include('pages.annonces.note.3')
+                                                        @elseif($note == 4)
+                                                            @include('pages.annonces.note.4')
+                                                        @else
+                                                            @include('pages.annonces.note.5')
+                                                        @endif
                                                     </div>
                                                 </span>
-                                                <span class="g-color-gray-dark-v5">4/5 note</span>
+                                                <span class="g-color-gray-dark-v5">{{ $note }}/5 note client</span>
                                             </div>
                                             <!-- End Search Rating -->
                                         </div>
