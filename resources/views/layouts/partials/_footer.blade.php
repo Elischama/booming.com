@@ -37,100 +37,36 @@
                 </div>
                 <!-- End Footer Content -->
 
-                <!-- Footer Content -->
-                <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
-                    <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Latest Posts</h2>
-                    </div>
 
-                    <article class="media">
-                        <a class="d-flex g-mt-4 mr-3" href="#">
-                            <img class="g-width-60 g-height-60" src="assets/img-temp/100x100/img13.jpg" alt="Image Description">
-                        </a>
-
-                        <div class="media-body">
-                            <h3 class="h6">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Top 7 luxury places to visit around Victoria, BC</a>
-                            </h3>
-
-                            <ul class="u-list-inline g-font-size-12">
-                                <li class="list-inline-item">June 09, 2017</li>
-                                <li class="list-inline-item">/</li>
-                                <li class="list-inline-item">
-                                    <a class="u-link-v5 g-color-white-opacity-0_8 g-color-white--hover" href="#">
-                                        <i class="fa fa-comments-o"></i>
-                                        12
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <hr class="g-brd-white-opacity-0_1 g-mt-15 g-mb-10">
-
-                    <article class="media">
-                        <a class="d-flex g-mt-4 mr-3" href="#">
-                            <img class="g-width-60 g-height-60" src="assets/img-temp/100x100/img8.jpg" alt="Image Description">
-                        </a>
-
-                        <div class="media-body">
-                            <h3 class="h6">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Coding week, 10 best premium templates</a>
-                            </h3>
-
-                            <ul class="u-list-inline g-font-size-12">
-                                <li class="list-inline-item">July 30, 2017</li>
-                                <li class="list-inline-item">/</li>
-                                <li class="list-inline-item">
-                                    <a class="u-link-v5 g-color-white-opacity-0_8 g-color-white--hover" href="#">
-                                        <i class="fa fa-comments-o"></i>
-                                        18
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-                <!-- End Footer Content -->
 
                 <!-- Footer Content -->
                 <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
                     <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Useful Links</h2>
+                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Liens utiles</h2>
                     </div>
 
                     <nav class="text-uppercase1">
                         <ul class="list-unstyled g-mt-minus-10 mb-0">
                             <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                                 <h4 class="h6 g-pr-20 mb-0">
-                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">About Us</a>
+                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Hotels</a>
                                     <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                                 </h4>
                             </li>
                             <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                                 <h4 class="h6 g-pr-20 mb-0">
-                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Portfolio</a>
+                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Maquis</a>
                                     <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                                 </h4>
                             </li>
                             <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                                 <h4 class="h6 g-pr-20 mb-0">
-                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Our Services</a>
+                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Restaurants</a>
                                     <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                                 </h4>
                             </li>
-                            <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
-                                <h4 class="h6 g-pr-20 mb-0">
-                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Latest Jobs</a>
-                                    <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
-                                </h4>
-                            </li>
-                            <li class="g-pos-rel g-py-10">
-                                <h4 class="h6 g-pr-20 mb-0">
-                                    <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Contact Us</a>
-                                    <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
-                                </h4>
-                            </li>
+
+
                         </ul>
                     </nav>
                 </div>
@@ -139,7 +75,7 @@
                 <!-- Footer Content -->
                 <div class="col-lg-3 col-md-6">
                     <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Our Contacts</h2>
+                        <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Contacts</h2>
                     </div>
 
                     <address class="g-bg-no-repeat g-font-size-12 mb-0" style="background-image: url(assets/img/maps/map2.png);">
@@ -179,9 +115,7 @@
                               </span>
                             </div>
                             <p class="mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="mailto:info@htmlstream.com">info@htmlstream.com</a>
-                                <br>
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">www.htmlstream.com</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="mailto:info@booming.ci">info@booming.ci</a>
                             </p>
                         </div>
                         <!-- End Email and Website -->
@@ -199,7 +133,7 @@
             <div class="row">
                 <div class="col-md-8 align-self-center text-center text-md-left g-mb-10 g-mb-0--md">
                     <div class="d-lg-flex">
-                        <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © All Rights Reserved.</small>
+                        <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © Tous droits réservés.</small>
                         <ul class="u-list-inline">
                             <li class="list-inline-item">
                                 <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Privacy Policy</a>
@@ -208,13 +142,13 @@
                                 <span>|</span>
                             </li>
                             <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Terms of Use</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Termes d'utilisation</a>
                             </li>
                             <li class="list-inline-item">
                                 <span>|</span>
                             </li>
                             <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">License</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Licence</a>
                             </li>
                             <li class="list-inline-item">
                                 <span>|</span>

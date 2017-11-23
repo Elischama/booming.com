@@ -30,110 +30,86 @@
         <!-- End Promo Block Content -->
     </section>
 
-        <section class="container" style="padding-top: 250px;">
-
+        <section class="container-fluid" style="padding-top: 250px;">
             <div class="row">
-                <div>
-                <h2 class="h2 g-color-black g-font-weight-600 mb-2">Nous recommandons</h2>
-                </div>
-                <div>
-                @foreach($recommandes as $recommande)
-                    <div class="col-sm-6 col-lg-3 g-mb-30">
-                        <!-- Blog Grid Overlap Blocks -->
-                        <article>
-                            <img class="img-fluid w-100" src="/assets/img/annonces/{{ $recommande->vignette }}" alt="Image Description">
-                            <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
-                                <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">31 May 2017</span>
-                                <h2 class="h5 g-color-black g-font-weight-600 mb-3">
-                                    <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="#">Announcing a free plan for small teams</a>
-                                </h2>
-                                <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
-                                <a class="g-font-size-13" href="#">Read more...</a>
-                            </div>
-                        </article>
-                        <!-- End Blog Grid Overlap Blocks -->
-                    </div>
-                @endforeach
-                </div>
-            </div>
-        </section>
-
-    <section class="container" style="padding-top: 250px;">
-
-        <div class="row">
-            Les nouveautés
-            @foreach($nouveautes as $nouveaute)
-                <div class="col-sm-6 col-lg-3 g-mb-30">
-                    <!-- Blog Grid Overlap Blocks -->
-                    <article>
-                        <img class="img-fluid w-100" src="/assets/img/annonces/{{ $nouveaute->vignette }}" alt="Image Description">
-                        <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
-                            <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">31 May 2017</span>
-                            <h2 class="h5 g-color-black g-font-weight-600 mb-3">
-                                <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="#">Announcing a free plan for small teams</a>
-                            </h2>
-                            <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
-                            <a class="g-font-size-13" href="#">Read more...</a>
+                <div class="col-md-3">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/assets/img-temp/400x270/img1.jpg" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
-                    </article>
-                    <!-- End Blog Grid Overlap Blocks -->
-                </div>
-            @endforeach
-        </div>
-    </section>
-
-    <section class="container" style="padding-top: 250px;">
-
-            <div class="row">
-
-                Les mieux notés
-                @foreach($moyennes as $moyenne)
-                    <div class="col-sm-6 col-lg-3 g-mb-30">
-                        <!-- Blog Grid Overlap Blocks -->
-                        <article>
-                            <img class="img-fluid w-100" src="/assets/img/annonces/{{ $moyenne->vignette }}" alt="Image Description">
-                            <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
-                                <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">31 May 2017</span>
-                                <h2 class="h5 g-color-black g-font-weight-600 mb-3">
-                                    <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="#">Announcing a free plan for small teams</a>
-                                </h2>
-                                <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
-                                <a class="g-font-size-13" href="#">Read more...</a>
-                            </div>
-                        </article>
-                        <!-- End Blog Grid Overlap Blocks -->
                     </div>
-                @endforeach
+                </div>
 
+                <div class="col-md-3">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/assets/img-temp/400x270/img1.jpg" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/assets/img-temp/400x270/img1.jpg" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/assets/img-temp/400x270/img1.jpg" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
+
         </section>
 
         <section class="container" style="padding-top: 250px;">
 
             <div class="row">
-
-                Les plus vus
-                @foreach($plusVus as $plusVus)
-
-                    <div class="col-sm-6 col-lg-3 g-mb-30">
-                        <!-- Blog Grid Overlap Blocks -->
-                        <article>
-                            <img class="img-fluid w-100" src="/assets/img/annonces/{{ $plusVus->vignette }}" alt="Image Description">
-                            <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
-                                <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">31 May 2017</span>
-                                <h2 class="h5 g-color-black g-font-weight-600 mb-3">
-                                    <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="#">Announcing a free plan for small teams</a>
-                                </h2>
-                                <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
-                                <a class="g-font-size-13" href="#">Read more...</a>
-                            </div>
-                        </article>
-                        <!-- End Blog Grid Overlap Blocks -->
-                    </div>
-                @endforeach
-
+                <div>
+                    <h2 class="h2 g-color-black g-font-weight-600 mb-2">Les nouveautés</h2>
+                </div>
+                <div>
+                    @foreach($nouveautes as $nouveaute)
+                        <div class="col-sm-6 col-lg-3 g-mb-30">
+                            <!-- Blog Grid Overlap Blocks -->
+                            <article>
+                                <img class="img-fluid w-100" src="/assets/img/annonces/{{ $nouveaute->vignette }}" alt="Image Description">
+                                <div class="g-width-80x g-bg-white g-pos-rel g-z-index-1 g-pa-30 g-mt-minus-50 mx-auto">
+                                    <span class="d-block g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 text-uppercase mb-2">31 May 2017</span>
+                                    <h2 class="h5 g-color-black g-font-weight-600 mb-3">
+                                        <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" href="#">Announcing a free plan for small teams</a>
+                                    </h2>
+                                    <p class="g-color-gray-dark-v4 g-line-height-1_8">At Wake, our mission has always been focused on bringing openness and transparency.</p>
+                                    <a class="g-font-size-13" href="#">Read more...</a>
+                                </div>
+                            </article>
+                            <!-- End Blog Grid Overlap Blocks -->
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </section>
+
 
 
 </div>

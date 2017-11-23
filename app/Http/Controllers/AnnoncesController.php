@@ -201,12 +201,16 @@ class AnnoncesController extends Controller
     public function show(Annonce $annonce)
     {
         //
-        $annonce = Annonce::where('id', $annonce->id )->first();
+       // $annonce = Annonce::where('id', $annonce->id )->first();
+
+        $annonce = Annonce::find($annonce->id);
 
         $annonce->vues++;
         $annonce->save();
 
-        return view('pages.description', ["annonce" => $annonce]);
+       // dd($annonce->all());
+
+        return view('pages.description', ["annonce" => $annonce ]);
 
     }
 
