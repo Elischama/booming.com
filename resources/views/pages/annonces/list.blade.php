@@ -124,11 +124,18 @@
                                             <!-- End Search Info -->
 
                                             @php($noteAll = 0)
+
+                                            @if(count($annonce->notes) > 0)
+
                                             @foreach($annonce->notes as $item)
                                                 @php($noteAll = $noteAll + $item->note)
                                             @endforeach
 
-                                            @php($note = ceil($noteAll / 5))
+                                            @php($note = ceil($noteAll / count($annonce->notes)))
+
+                                            @else
+                                                @php($note = 0)
+                                            @endif
                                             <!-- Search Rating -->
                                             <div>
                                                 <span class="js-rating g-color-primary mr-2" data-rating="5">
@@ -204,6 +211,12 @@
                         {{--</ul>--}}
                     {{--</nav>--}}
                     <!-- End Pagination -->
+
+                    @else
+
+
+                        @include('layouts.partials.empty')
+
 
                     @endif
 

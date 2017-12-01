@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', [
-    'as' => 'root_path',
-    'uses' => 'AnnoncesController@index'
-]);
+//Route::get('/', [
+//    'as' => 'root_path',
+//    'uses' => 'AnnoncesController@index'
+//]);
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'annonces'], function(){
     Route::get('/hotels', 'AnnoncesController@AnnonceHotel')->name('annonce.hotel');
@@ -26,6 +28,8 @@ Route::group(['prefix' => 'annonces'], function(){
     Route::post('/note/{id}/save', 'AnnoncesController@NoteSave')->name('note.save');
     Route::post('/reservation/{id}/save', 'AnnoncesController@ReservationSave')->name('reservation.save');
 });
+
+Route::get('/search', 'HomeController@indexSearch')->name('index.search');
 
 
 //Route::get('/maquis', [

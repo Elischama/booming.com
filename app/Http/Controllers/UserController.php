@@ -55,6 +55,11 @@ class UserController extends Controller
 
     public function UserAnnonceSave(Request $request, Guard $auth){
 
+        $destination_path = public_path('assets/img/annonces');
+
+        $extention = array(
+            'jpg', 'JPG', 'png', 'PNG', 'JPEG', 'jpeg', 'GIF', 'gif'
+        );
 
         $validator = Validator::make($request->all(), [
             'categorie_id' => 'required',
@@ -63,7 +68,8 @@ class UserController extends Controller
             'situation' => 'required',
             'mobile' => 'required',
             'email' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'vignette' => 'required'
         ]);
 
         if($validator->fails()){
@@ -88,12 +94,6 @@ class UserController extends Controller
 
             if (count($request->file('image')) > 0){
 
-                $destination_path = public_path('assets/img/images');
-
-                $extention = array(
-                    'jpg', 'JPG', 'png', 'PNG', 'JPEG', 'jpeg', 'GIF', 'gif'
-                );
-
                 foreach ($request->file('image') as $image){
 
                     if (in_array($image->getClientOriginalExtension(), $extention)) {
@@ -110,6 +110,24 @@ class UserController extends Controller
 
                 }
 
+            }
+
+            if (!empty($request->file('vignette'))){
+
+                if (in_array($request->file('vignette')->getClientOriginalExtension(), $extention)) {
+
+                    $vignetteName = date('Y') . '_' . rand(0, 1000000000) . '_' . date('d') . '_' . rand(0, 1000000000) . '_' . date('m') . '_' . rand(0, 1000000000) . '_booming.' . $request->file('vignette')->getClientOriginalExtension();
+
+                    $request->file('vignette')->move($destination_path, $vignetteName);
+
+                    $value = Annonce::find($data->id);
+                    $value->vignette = $vignetteName;
+                    $value->save();
+                }
+            }else{
+                $value = Annonce::find($data->id);
+                $value->vignette = 'logo_annonce.gif';
+                $value->save();
             }
 
         }
@@ -172,6 +190,12 @@ class UserController extends Controller
 
     public function UserAnnonceUpdate(Request $request, $id){
 
+        $destination_path = public_path('assets/img/annonces');
+
+        $extention = array(
+            'jpg', 'JPG', 'png', 'PNG', 'JPEG', 'jpeg', 'GIF', 'gif'
+        );
+
         $validator = Validator::make($request->all(), [
             'categorie_id' => 'required',
             'name' => 'required',
@@ -205,15 +229,19 @@ class UserController extends Controller
 
             $data->description = addslashes($request->input('description'));
 
+
+            if (in_array($request->file('vignette')->getClientOriginalExtension(), $extention)) {
+
+                $vignetteName = date('Y') . '_' . rand(0, 1000000000) . '_' . date('d') . '_' . rand(0, 1000000000) . '_' . date('m') . '_' . rand(0, 1000000000) . '_booming.' . $request->file('vignette')->getClientOriginalExtension();
+
+                $request->file('vignette')->move($destination_path, $vignetteName);
+
+                $data->vignette = $vignetteName;
+            }
+
             $data->save();
 
             if (count($request->file('image')) > 0){
-
-                $destination_path = public_path('assets/img/annonces');
-
-                $extention = array(
-                    'jpg', 'JPG', 'png', 'PNG', 'JPEG', 'jpeg', 'GIF', 'gif'
-                );
 
                 foreach ($request->file('image') as $image){
 

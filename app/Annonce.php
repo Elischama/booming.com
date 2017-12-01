@@ -8,7 +8,7 @@ class Annonce extends Model
 {
     //
     protected $fillable = [
-        'categorie_id', 'name', 'city', 'situation', 'mobile', 'email', 'description', 'user_id', 'fixe', 'strong_point', 'promoted', 'verified', 'statut'
+        'categorie_id', 'name', 'city', 'situation', 'mobile', 'email', 'description', 'user_id', 'fixe', 'strong_point', 'promoted', 'verified', 'statut', 'vignette', 'slug'
     ];
 
     public function services(){
@@ -41,7 +41,7 @@ class Annonce extends Model
         return $this->hasMany('App\Note');
     }
 
-    public function reservation(){
+    public function reservations(){
         return $this->hasMany('App\Reservation');
     }
 

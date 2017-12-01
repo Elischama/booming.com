@@ -79,18 +79,45 @@
 
                     @if(count($pictures) > 0)
 
-                        <div class="annonce-slide">
-                            <div class="annonce-picture">
-                                @foreach($pictures as $picture)
-                                    <div><img src="/assets/img/annonces/{{ $picture->name }}" alt=""></div>
-                                @endforeach
+                        {{--<div class="annonce-slide">--}}
+                            {{--<div class="annonce-picture">--}}
+                                {{--@foreach($pictures as $picture)--}}
+                                    {{--<div><img src="/assets/img/annonces/{{ $picture->name }}" alt=""></div>--}}
+                                {{--@endforeach--}}
+                            {{--</div>--}}
+                            {{--<div class="control text-right">--}}
+                                {{--<span class="control-left"><i class="fa fa-angle-left"></i></span>--}}
+                                {{--<span class="control-right"><i class="fa fa-angle-right"></i></span>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+
+                        <div id="carouselCus1" class="js-carousel text-center g-mb-20" data-infinite="true" data-lazy-load="progressive" data-arrows-classes="u-arrow-v1 g-absolute-centered--y g-width-50 g-height-50 g-font-size-20 g-bg-white g-color-gray-dark-v5 g-color-primary--hover g-mt-minus-10" data-arrow-left-classes="fa fa-angle-left g-left-0 rounded-right" data-arrow-right-classes="fa fa-angle-right g-right-0 rounded-left" data-nav-for="#carouselCus2">
+
+                            @foreach($pictures as $picture)
+
+                            <div class="js-slide">
+                                <a class="js-fancybox d-block g-pos-rel" data-rel="lightbox-gallery--08-1" href="/assets/img/annonces/{{ $picture->name }}" title="Lightbox Gallery" data-open-effect="bounceInDown" data-close-effect="bounceOutDown" data-open-speed="1000" data-close-speed="1000"
+                                   data-blur-bg="true">
+                                    <img class="img-fluid w-100 rounded" data-lazy="/assets/img/annonces/{{ $picture->name }}" alt="{{ $data->name }}">
+                                </a>
                             </div>
-                            <div class="control text-right">
-                                <span class="control-left"><i class="fa fa-angle-left"></i></span>
-                                <span class="control-right"><i class="fa fa-angle-right"></i></span>
-                            </div>
+
+                            @endforeach
+
                         </div>
 
+                        <div id="carouselCus2" class="js-carousel text-center g-mx-minus-10 u-carousel-v3" data-infinite="true" data-center-mode="true" data-lazy-load="progressive" data-slides-show="4" data-is-thumbs="true" data-nav-for="#carouselCus1">
+
+                            @foreach($pictures as $picture)
+
+                            <div class="js-slide g-px-10">
+                                <img class="img-fluid g-cursor-pointer rounded" data-lazy="/assets/img/annonces/{{ $picture->name }}" alt="{{ $data->name }}">
+                            </div>
+
+                            @endforeach
+                        </div>
+                                        <!-- End Carousel -->
+                        
                     @endif
 
                     <!-- Jobs Description -->

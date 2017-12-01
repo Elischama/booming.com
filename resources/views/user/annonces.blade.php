@@ -233,12 +233,31 @@
 
                                             <div class="col-sm-12">
                                                 <div class="form-group g-mb-20">
+                                                    <label class="g-color-gray-dark-v2 g-font-weight-700 g-mb-10" for="inputGroup1_1">Modifier la vignette</label>
+
+                                                    @if(isset($data->vignette))
+                                                        <div class="row">
+                                                            <div class="col-sm-3 text-center" style="margin-bottom: 5px;">
+                                                                <img src="/assets/img/annonces/{{ $data->vignette }}" style="width: 100%;" alt="">
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+                                                    <br>
+                                                    <div class="input-group g-brd-primary--focus">
+                                                        <input id="input-id" type="file" class="form-control file" name="vignette" data-preview-file-type="text" multiple>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group g-mb-20">
                                                     <label class="g-color-gray-dark-v2 g-font-weight-700 g-mb-10" for="inputGroup1_1">Ajouter des images de votre établisement</label>
 
                                                     @if(count($images) > 0)
                                                         <div class="row">
                                                             @foreach($images as $image)
-                                                                <div class="col-sm-3 text-center">
+                                                                <div class="col-sm-3 text-center" style="margin-bottom: 5px;">
                                                                     <img src="/assets/img/annonces/{{ $image->name }}" style="width: 100%;" alt="">
                                                                     <a href="{{ route('user.account.annonce.image.delete', ['picture_id' => $image->id, 'annonce' => $data->id]) }}" class="DeleteImage btn u-btn-red btn-xs"><i class="fa fa-trash-o"></i></a>
                                                                 </div>
@@ -471,6 +490,37 @@
                                                     @endif
                                                 </div>
                                             </div>
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group g-mb-20">
+                                                    <label class="g-color-gray-dark-v2 g-font-weight-700 g-mb-10" for="inputGroup1_1">Ajouter une image (vignette)</label>
+
+                                                    <!-- cookies -->
+                                                    <div id="TutoImage" class="alert fade show g-bg-cyan-opacity-0_1 g-color-cyan rounded-0 g-mb-5" role="alert">
+                                                        <button type="button" id="closeTutoImage" class="close u-alert-close--light g-ml-10 g-mt-1" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+
+                                                        <div class="media">
+                                                            <div class="media-body">
+                                                                <p class="m-0">Cette image sera celle que les utilisateurs verons avant les autres</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <!-- end cookie -->
+
+                                                    <div class="input-group g-brd-primary--focus">
+                                                        <input id="input-id" type="file" class="form-control file" name="vignette" data-preview-file-type="text">
+                                                    </div>
+                                                    @if ($errors->has('vignette'))
+                                                        <div class="field_required">
+                                                            Une image en vignette est obligatoire
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+
 
                                             <div class="col-sm-12">
                                                 <div class="form-group g-mb-20">

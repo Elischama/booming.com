@@ -5,7 +5,9 @@
 <!-- Mirrored from htmlstream.com/preview/unify-v2.2/unify-main/shortcodes/headers/classic-header--one-page-scrolling.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Nov 2017 14:05:30 GMT -->
 <head>
     <!-- Title -->
-    <title>{{ page_title(isset($title) ? $title : '') }}</title>
+    {{--<title>{{ page_title(isset($title) ? $title : '') }}</title>--}}
+
+    <title>booming</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">

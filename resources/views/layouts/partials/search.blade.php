@@ -3,7 +3,7 @@
         {!! Form::open() !!}
         <div class="row search-principal">
             <div class="logo">
-                <img src="/assets/img/logo/logo-2.png" alt="">
+                <a href="/"><img src="/assets/img/logo/logo-2.png" alt=""></a>
             </div>
             <div class="form-inline">
                 <div class="form-group">
@@ -18,7 +18,11 @@
                     <button type="submit" class="btn-form"><i class="fa fa-search"></i></button>
                 </div>
                 <div class="form-group">
-                    <a href="" class="btn-login">Connexion</a>
+                    @if(Auth::guest())
+                        <a href="/login" class="btn-login">Connexion</a>
+                    @else
+                        <a href="{{ route('user.account') }}" class="btn-login"><i class="fa fa-user-circle"></i> {{ Auth::user()->lastname }}</a>
+                    @endif
                 </div>
             </div>
         </div>

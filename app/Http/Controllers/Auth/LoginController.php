@@ -29,6 +29,16 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->redirectTo = url()->previous();
+        $this->middleware('guest')->except('logout');
+    }
 
     /**
      * Handle a login request to the application.
@@ -61,13 +71,5 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+
 }

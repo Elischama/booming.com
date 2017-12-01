@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AnnoncesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +23,7 @@ class AnnoncesController extends Controller
      */
     public function index()
     {
-        $nouveautes = Annonce::where('created_at', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->take(4)->orderBy('created_at','desc')->get();
+        $nouveautes = Annonce::where('created_at', '>=', \DB::raw('DATE_SUB(NOW(), INTERVAL 7 DAY)'))->take(4)->get();
         $recommandes = Annonce::where('promoted', '=', 1)->take(4)->get();
         $moyennes = \DB::table('annonces')->join('commentaires','annonces.id','commentaires.annonces_id')->select('annonces.*', \DB::raw('AVG(commentaires.note) AS moy'))->groupBy('annonces.id')->orderBy('moy','desc')->take(4)->get();
         $plusVus = Annonce::orderBy('vues','desc')->get() ;
@@ -78,9 +79,6 @@ class AnnoncesController extends Controller
         $data->vues = $data->vues + 1;
         $data->save();
 
-        $data['service'] = explode(',', $data->strong_point);
-
-
         $pictures = Image::where('annonce_id', $data->id)->get();
 
         //commentaire
@@ -89,7 +87,7 @@ class AnnoncesController extends Controller
         //note
         $notes = Note::where('annonce_id', $data->id)->get();
 
-        if (empty($notes)){
+        if (!count($notes) > 0){
             $data['note'] = 0;
         }else{
             $noteSomme = 0;
@@ -97,8 +95,14 @@ class AnnoncesController extends Controller
                 $noteSomme = $noteSomme + $value->note;
             }
 
-            $data['note'] = ceil($noteSomme / 5);
+            $data['note'] = ceil($noteSomme / count($notes));
+
+            $data->note = $data['note'];
+            $data->save();
         }
+
+        $data['service'] = explode(',', $data->strong_point);
+
 
         return view('pages.annonces.show', compact('data', 'pictures', 'comments'));
     }
